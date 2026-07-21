@@ -82,76 +82,63 @@ loadProfile();
    Load Books
 ========================================== */
 
-async function loadBooks(){
+async function loadBooks() {
 
-    try{
+    try {
 
         const response = await fetch("data/books.json");
 
-        if(!response.ok) return;
+        if (!response.ok) return;
 
         const books = await response.json();
 
-        if(books.length === 0){
-
-            return;
-
-        }
-
         const currentBook = books.find(book => book.status === "reading");
 
-        if(!currentBook){
+        const container = document.getElementById("currentBook");
+
+        if (!container) return;
+
+        if (!currentBook) {
+
+            container.innerHTML = "<p>No book is currently being read.</p>";
 
             return;
 
         }
 
-        const title = document.querySelector(".book-info h3");
+        const percent = Math.round(
+            (currentBook.currentPage / currentBook.pages) * 100
+        );
 
-        if(title){
+        container.innerHTML = `
+            <div class="book-preview">
 
-            title.textContent = currentBook.title;
+                <div class="cover">📘</div>
 
-        }
+                <div class="book-info">
 
-        const author = document.querySelector(".book-info p");
+                    <h3>${currentBook.title}</h3>
 
-        if(author){
+                    <p>${currentBook.author}</p>
 
-            author.textContent = currentBook.author;
+                    <div class="progress">
+                        <div class="progress-fill" style="width:${percent}%"></div>
+                    </div>
 
-        }
+                    <small>
+                        ${currentBook.currentPage} / ${currentBook.pages} pages (${percent}%)
+                    </small>
 
-       const title = document.querySelector(".book-info h3");
-if (title) {
-    title.textContent = currentBook.title;
-}
+                </div>
 
-const author = document.querySelector(".book-info p");
-if (author) {
-    author.textContent = currentBook.author;
-}
-
-const progressText = document.querySelector(".book-info small");
-const fill = document.querySelector(".progress-fill");
-
-if (progressText && fill) {
-
-    const percent = Math.round(
-        (currentBook.currentPage / currentBook.pages) * 100
-    );
-
-    progressText.textContent =
-        `${currentBook.currentPage} / ${currentBook.pages} pages (${percent}%)`;
-
-    fill.style.width = percent + "%";
-}
+            </div>
+        `;
 
     }
 
-    catch(error){
+    catch (error) {
 
-        console.log(error);
+        console.error(error);
 
     }
 
