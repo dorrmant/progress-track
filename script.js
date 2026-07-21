@@ -82,30 +82,29 @@ loadProfile();
    Load Books
 ========================================== */
 
-async function loadBooks() {const books = await response.json();
-console.log(books);
+async function loadBooks() {
 
-const currentBook = books.find(book => book.status === "reading");
-console.log(currentBook);
+    console.log("loadBooks() started");
 
     try {
 
         const response = await fetch("data/books.json");
-
-        if (!response.ok) return;
+        console.log("Response:", response.status);
 
         const books = await response.json();
+        console.log("Books:", books);
 
         const currentBook = books.find(book => book.status === "reading");
+        console.log("Current book:", currentBook);
 
         const container = document.getElementById("currentBook");
+        console.log("Container:", container);
 
         if (!container) return;
 
         if (!currentBook) {
 
-            container.innerHTML = "<p>No book is currently being read.</p>";
-
+            container.innerHTML = "<p>No current book.</p>";
             return;
 
         }
@@ -116,31 +115,21 @@ console.log(currentBook);
 
         container.innerHTML = `
             <div class="book-preview">
-
                 <div class="cover">📘</div>
-
                 <div class="book-info">
-
                     <h3>${currentBook.title}</h3>
-
                     <p>${currentBook.author}</p>
-
                     <div class="progress">
                         <div class="progress-fill" style="width:${percent}%"></div>
                     </div>
-
-                    <small>
-                        ${currentBook.currentPage} / ${currentBook.pages} pages (${percent}%)
-                    </small>
-
+                    <small>${currentBook.currentPage} / ${currentBook.pages} pages (${percent}%)</small>
                 </div>
-
             </div>
         `;
 
-    }
+        console.log("Book rendered.");
 
-    catch (error) {
+    } catch (error) {
 
         console.error(error);
 
@@ -149,7 +138,6 @@ console.log(currentBook);
 }
 
 loadBooks();
-
 /* ==========================================
    Fade Cards
 ========================================== */
