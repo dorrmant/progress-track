@@ -109,11 +109,15 @@
         <!-- Books -->
 <section id="books" class="panel">
 
-    <h2>📚 Books</h2>
+    <h2>📚 Books Manager</h2>
 
-    <div class="editor-grid">
+    <div class="book-layout">
+
+        <!-- Left -->
 
         <div class="editor-card">
+
+            <h3>Add / Edit Book</h3>
 
             <label>Title</label>
             <input type="text" id="bookTitle">
@@ -122,42 +126,48 @@
             <input type="text" id="bookAuthor">
 
             <label>Status</label>
+
             <select id="bookStatus">
-                <option value="reading">Reading</option>
-                <option value="completed">Completed</option>
-                <option value="planned">Planned</option>
+                <option value="reading">📖 Reading</option>
+                <option value="completed">✓ Completed</option>
+                <option value="planned">📚 Planned</option>
             </select>
 
-            <label>Started</label>
-            <input type="date" id="bookStarted">
+            <label>Total Pages</label>
+            <input type="number" id="bookPages">
 
-            <label>Finished</label>
-            <input type="date" id="bookFinished">
+            <label>Current Page</label>
+            <input type="number" id="bookCurrentPage">
 
-            <label>Cover URL</label>
-            <input type="text" id="bookCover">
+            <label>Cover Image</label>
+            <input
+                type="text"
+                id="bookCover"
+                placeholder="assets/covers/example.jpg"
+            >
 
-            <button id="generateBook">
-                Generate JSON
+            <button id="saveBook">
+                💾 Save Book
+            </button>
+
+            <button
+                id="clearBook"
+                class="secondary-btn"
+            >
+                Clear Form
             </button>
 
         </div>
 
+        <!-- Right -->
+
         <div class="editor-card">
 
-            <h3>JSON Preview</h3>
+            <h3>Current Books</h3>
 
-            <pre id="bookPreview">{ }</pre>
+            <div id="bookList">
 
-            <div class="btn-row">
-
-                <button id="copyBook">
-                    📋 Copy
-                </button>
-
-                <button id="downloadBook">
-                    ⬇ Download
-                </button>
+                <p>No books yet.</p>
 
             </div>
 
