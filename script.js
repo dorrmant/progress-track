@@ -82,7 +82,11 @@ loadProfile();
    Load Books
 ========================================== */
 
-async function loadBooks() {
+async function loadBooks() {const books = await response.json();
+console.log(books);
+
+const currentBook = books.find(book => book.status === "reading");
+console.log(currentBook);
 
     try {
 
