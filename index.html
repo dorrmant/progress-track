@@ -2,199 +2,140 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
-<title>Progress Track</title>
+<title>The Study Ledger</title>
 
 <link rel="stylesheet" href="style.css">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
 </head>
 
 <body>
 
+<aside>
+
+<h1>The Study Ledger</h1>
+
+<nav>
+
+<a href="#">Dashboard</a>
+
+<a href="#">Library</a>
+
+<a href="#">Daily Logs</a>
+
+<a href="#">Statistics</a>
+
+<a href="#">Notes</a>
+
+<a href="#">About</a>
+
+</nav>
+
+</aside>
+
+<main>
+
 <header>
 
-<h1>📚 Progress Track</h1>
-
-<p>Learning in Public</p>
+<h2>A public record of reading, research & learning.</h2>
 
 </header>
 
-<div class="container">
+<section class="stats">
 
-<div class="card stats">
-
-<div>
-<h2>🔥 12</h2>
+<div class="card">
+<h3>🔥</h3>
+<h1>17</h1>
 <p>Day Streak</p>
 </div>
 
-<div>
-<h2>152h</h2>
-<p>Total Hours</p>
+<div class="card">
+<h3>⏱</h3>
+<h1>312</h1>
+<p>Hours</p>
 </div>
 
-<div>
-<h2>68</h2>
-<p>Notes</p>
-</div>
-
-<div>
-<h2>4</h2>
+<div class="card">
+<h3>📚</h3>
+<h1>18</h1>
 <p>Books</p>
 </div>
 
-</div>
-
 <div class="card">
+<h3>📝</h3>
+<h1>243</h1>
+<p>Notes</p>
+</div>
 
-<h2>Today's Progress</h2>
+</section>
 
-<p><strong>Date</strong></p>
-<p>21 July 2026</p>
+<section>
 
-<br>
+<h2>Currently Reading</h2>
 
-<p><strong>Topics</strong></p>
+<div class="book">
 
-<ul>
+<div>
 
-<li>Ibn Taymiyyah</li>
+<h3>Ibn Taymiyyah on Causality</h3>
 
-<li>Linux</li>
-
-<li>SDLC</li>
-
-</ul>
-
-<br>
-
-<p><strong>Coverage</strong></p>
-
-<ul>
-
-<li>Pages 20–45</li>
-
-<li>Chapter 4</li>
-
-<li>Revision</li>
-
-</ul>
-
-<br>
-
-<p><strong>Checklist</strong></p>
-
-<div class="checks">
-
-<span>✅ Read</span>
-
-<span>✅ Notes</span>
-
-<span>☑ Revision</span>
-
-<span>⬜ Quiz</span>
+<p>142 / 210 pages</p>
 
 </div>
 
-<br>
+<div>
 
-<a href="#">📖 View Notes</a>
+67%
 
 </div>
 
-<div class="card">
-
-<h2>Reading Progress</h2>
-
-<p>Ibn Taymiyyah</p>
+</div>
 
 <div class="progress">
 
-<div class="fill" style="width:72%"></div>
+<div class="fill" style="width:67%"></div>
 
 </div>
-
-<p>72%</p>
 
 <br>
 
-<p>Linux Bible</p>
+<button>Open Book</button>
 
-<div class="progress">
+</section>
 
-<div class="fill" style="width:41%"></div>
+<section>
 
-</div>
+<h2>Recent Notes</h2>
 
-<p>41%</p>
+<div class="note">
 
-<br>
+<p><strong>21 Jul 2026</strong></p>
 
-<p>Aristotle</p>
+<p>Pages 20–42</p>
 
-<div class="progress">
-
-<div class="fill" style="width:18%"></div>
+<button>Read</button>
 
 </div>
 
-<p>18%</p>
+<div class="note">
+
+<p><strong>20 Jul 2026</strong></p>
+
+<p>Pages 1–19</p>
+
+<button>Read</button>
 
 </div>
 
-<div class="card">
+</section>
 
-<h2>Recent Activity</h2>
-
-<table>
-
-<tr>
-
-<th>Date</th>
-
-<th>Topic</th>
-
-<th>Status</th>
-
-</tr>
-
-<tr>
-
-<td>21 Jul</td>
-
-<td>Ibn Taymiyyah</td>
-
-<td>✅</td>
-
-</tr>
-
-<tr>
-
-<td>20 Jul</td>
-
-<td>Linux</td>
-
-<td>✅</td>
-
-</tr>
-
-<tr>
-
-<td>19 Jul</td>
-
-<td>SDLC</td>
-
-<td>✅</td>
-
-</tr>
-
-</table>
-
-</div>
-
-</div>
-
-<script src="script.js"></script>
+</main>
 
 </body>
 </html>
