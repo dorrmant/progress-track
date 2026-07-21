@@ -178,33 +178,18 @@ loadBooks();
 /* ==========================================
    Statistics
 ========================================== */
-
 async function loadStatistics() {
 
-    try {
+    const response = await fetch("data/books.json");
+    const books = await response.json();
 
-        const response = await fetch("data/books.json");
+    document.getElementById("booksCount").textContent = books.length;
 
-        if (!response.ok) return;
+    const pagesRead = books.reduce((sum, book) => {
+        return sum + (book.currentPage || 0);
+    }, 0);
 
-        const books = await response.json();
-
-        // Total books
-        document.getElementById("booksCount").textContent = books.length;
-
-        // Total pages read
-        const pagesRead = books.reduce((total, book) => {
-            return total + (book.currentPage || 0);
-        }, 0);
-
-        document.getElementById("pagesRead").textContent = pagesRead;
-
-    } catch (error) {
-
-        console.error(error);
-
-    }
-
+    document.getElementById("pagesRead").textContent = pagesRead;
 }
 
 loadStatistics();
