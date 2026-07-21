@@ -7,7 +7,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Library |</title>
+<title>Library | The Study Ledger</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 
@@ -21,59 +21,92 @@
 
 <body>
 
+<button class="menu-toggle" id="menuToggle">
+    &#9776;
+</button>
+
 <div class="container">
 
-<aside class="sidebar">
+    <aside class="sidebar">
 
-<div class="logo">
+        <div class="logo">
 
-<h1>My Study Ledger</h1>
+            <h1>The Study Ledger</h1>
 
-<p>My public record of reading and learning.</p>
+            <p>
+                My public record of reading and learning.
+            </p>
 
-</div>
+        </div>
 
-<nav>
+        <nav>
 
-<a href="index.html">Dashboard</a>
+            <a href="index.html">🏠 Dashboard</a>
 
-<a class="active" href="library.html">Library</a>
+            <a class="active" href="library.html">📚 Library</a>
 
-<a href="daily.html">Daily Log</a>
+            <a href="daily.html">📝 Daily Log</a>
 
-<a href="statistics.html">Statistics</a>
+            <a href="statistics.html">📊 Statistics</a>
 
-<a href="search.html">Search</a>
+            <a href="search.html">🔍 Search</a>
 
-<a href="about.html">About</a>
+            <a href="about.html">ℹ️ About</a>
 
-</nav>
+        </nav>
 
-</aside>
+    </aside>
 
-<main>
+    <main>
 
-<header class="hero">
+        <header class="hero">
 
-<div>
+            <h1 class="hero-name">Library</h1>
 
-<h2>Library</h2>
+            <p class="hero-bio">
+                My complete reading archive.
+            </p>
 
-<p>My complete reading archive.</p>
+        </header>
 
-</div>
+        <div id="libraryGrid"></div>
 
-</header>
-
-<div id="libraryGrid">
-
-</div>
-
-</main>
+    </main>
 
 </div>
 
 <script src="library.js"></script>
+
+<script>
+
+const menuToggle = document.getElementById("menuToggle");
+const sidebar = document.querySelector(".sidebar");
+
+if(menuToggle && sidebar){
+
+    menuToggle.addEventListener("click",()=>{
+
+        sidebar.classList.toggle("active");
+
+    });
+
+    document.addEventListener("click",(e)=>{
+
+        if(
+            window.innerWidth <= 900 &&
+            !sidebar.contains(e.target) &&
+            !menuToggle.contains(e.target)
+        ){
+
+            sidebar.classList.remove("active");
+
+        }
+
+    });
+
+}
+
+</script>
 
 </body>
 
