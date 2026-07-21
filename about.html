@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>About | The Study Ledger</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<div class="container">
+
+<aside class="sidebar">
+
+<div class="logo">
+
+<h1>The Study Ledger</h1>
+
+<p>A public record of reading, research and learning.</p>
+
+</div>
+
+<nav>
+
+<a href="index.html">🏠 Dashboard</a>
+
+<a href="library.html">📚 Library</a>
+
+<a href="about.html" class="active">ℹ️ About</a>
+
+</nav>
+
+</aside>
+
+<main>
+
+<section class="card">
+
+<h1>About</h1>
+
+<p>
+
+The Study Ledger is my little corner of the internet where I document books,
+research notes, papers I've read, and whatever rabbit hole I'm currently
+falling into.
+
+</p>
+
+<p>
+
+This isn't meant to be polished or complete. It's simply a public archive of
+what I've learned, what I'm reading, and occasionally what I'm confused about.
+
+</p>
+
+<hr>
+
+<h2>Contact</h2>
+
+<p>
+
+If you've found a mistake, have a recommendation, or just want to say hello,
+feel free to leave a message.
+
+</p>
+
+<button id="contactBtn">
+
+✉️ Contact
+
+</button>
+
+</section>
+
+</main>
+
+</div>
+
+<div class="modal" id="contactModal">
+
+<div class="modal-box">
+
+<h2>Contact</h2>
+
+<p>
+
+<strong>dorrmant</strong> has disabled carrier pigeons,
+fax machines, smoke signals, and telepathy.
+
+</p>
+
+<p>
+
+The only currently accepted transmission protocol is:
+
+</p>
+
+<p>
+
+<a href="https://ngl.link/dorrmant"
+target="_blank">
+
+ngl.link/dorrmant
+
+</a>
+
+</p>
+
+<p class="muted">
+
+Responses are not guaranteed.
+Existential crises may receive priority.
+
+</p>
+
+<button id="closeModal">
+
+Close
+
+</button>
+
+</div>
+
+</div>
+
+<script>
+
+const modal=document.getElementById("contactModal");
+
+document.getElementById("contactBtn").onclick=()=>{
+
+modal.classList.add("show");
+
+};
+
+document.getElementById("closeModal").onclick=()=>{
+
+modal.classList.remove("show");
+
+};
+
+window.onclick=e=>{
+
+if(e.target===modal){
+
+modal.classList.remove("show");
+
+}
+
+};
+
+</script>
+
+</body>
+
+</html>
