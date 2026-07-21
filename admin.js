@@ -118,3 +118,32 @@ document.getElementById("downloadBook").onclick = () => {
     a.click();
 
 };
+/* ==========================
+   Books Manager
+========================== */
+
+let books = [];
+
+let editingBook = null;
+
+const saveBook = document.getElementById("saveBook");
+
+const clearBook = document.getElementById("clearBook");
+
+clearBook.onclick = clearBookForm;
+
+saveBook.onclick = () => {
+
+    const title = document.getElementById("bookTitle").value.trim();
+
+    if(title===""){
+
+        alert("Book title required.");
+
+        return;
+
+    }
+
+    console.log("Book ready to save.");
+
+};
