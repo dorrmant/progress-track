@@ -106,12 +106,13 @@ function clearBookForm() {
 
 function renderBooks() {
 
-    if (books.length === 0) {
+   if (books.length === 0) {
 
-        bookList.innerHTML = "<p>No books yet.</p>";
-        return;
+    bookList.innerHTML = "<p>No books yet.</p>";
+    booksPreview.textContent = "[]";
+    return;
 
-    }
+}
 
     bookList.innerHTML = "";
 
