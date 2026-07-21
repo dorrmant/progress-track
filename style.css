@@ -940,3 +940,18 @@ color:#6b7280;
 margin-bottom:18px;
 
 }
+.note-page{
+
+    max-width:900px;
+
+    margin:60px auto;
+
+    padding:40px;
+
+}
+
+.note-page button{
+
+    margin-bottom:30px;
+
+}
