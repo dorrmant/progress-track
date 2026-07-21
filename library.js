@@ -1,78 +1,91 @@
 async function loadLibrary(){
 
-const response=await fetch("data/books.json");
+    const response = await fetch("data/books.json");
 
-const books=await response.json();
+    const books = await response.json();
 
-const grid=document.getElementById("libraryGrid");
+    const grid = document.getElementById("libraryGrid");
 
-grid.innerHTML="";
+    grid.innerHTML = "";
 
-books.forEach(book=>{
+    books.forEach(book => {
 
-const percent=Math.round(
-book.currentPage/book.pages*100
-);
+        const percent = Math.round(
+            book.currentPage / book.pages * 100
+        );
 
-const card=document.createElement("div");
+        const card = document.createElement("div");
 
-card.className="book-card";
+        card.className = "book-card";
 
-card.innerHTML=`
+        card.innerHTML = `
 
-<div class="book-cover">
+        <div class="book-cover">
 
-📘
+            📘
 
-</div>
+        </div>
 
-<h2>
+        <span class="badge ${book.status}">
+            ${
+                book.status === "completed"
+                ? "✓ Completed"
+                : book.status === "reading"
+                ? "📖 Reading"
+                : "📚 Planned"
+            }
+        </span>
 
-${book.title}
+        <h2>
 
-</h2>
+            ${book.title}
 
-<p>
+        </h2>
 
-${book.author}
+        <p>
 
-</p>
+            ${book.author}
 
-<div class="progress">
+        </p>
 
-<div class="progress-fill"
+        <div class="progress">
 
-style="width:${percent}%">
+            <div class="progress-fill"
+            style="width:${percent}%">
 
-</div>
+            </div>
 
-</div>
+        </div>
 
-<small>
+        <small>
 
-${book.currentPage} /
+            ${book.currentPage} /
+            ${book.pages}
+            pages
 
-${book.pages}
+            (${percent}%)
 
-pages
+        </small>
 
-(${percent}%)
+        <br><br>
 
-</small>
+        <button onclick="location.href='book.html?id=${book.id}'">
 
-<br><br>
+            ${
+                book.status === "completed"
+                ? "View Notes"
+                : book.status === "reading"
+                ? "Continue Reading"
+                : "Start Reading"
+            }
 
-<button onclick="location.href='book.html?id=${book.id}'">
+        </button>
 
-Open Book
+        `;
 
-</button>
+        grid.appendChild(card);
 
-`;
-
-grid.appendChild(card);
-
-});
+    });
 
 }
 
