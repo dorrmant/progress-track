@@ -1,6 +1,9 @@
 {
-  "siteTitle": "The Study Ledger",
-  "subtitle": "A public record of reading, research, and learning",
-  "owner": "Sajjad",
-  "github": "https://github.com/dorrmant"
+    "title":"The Study Ledger",
+
+    "subtitle":"A public record of reading, research and learning",
+
+    "owner":"Sajjad",
+
+    "github":"dorrmant"
 }
