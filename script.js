@@ -9,60 +9,48 @@ console.log("The Study Ledger Loaded");
    Today's Date
 ========================================== */
 
-function updateDate() {
+const currentDate = document.getElementById("currentDate");
 
-    const options = {
-        weekday: "long",
-        year: "numeric",
-        month: "long",
-        day: "numeric"
-    };
-
-    const today = new Date();
-
-    const element = document.querySelector(".date-box span");
-
-    if (element) {
-        element.textContent = today.toLocaleDateString("en-US", options);
-    }
-
-}
-
-updateDate();
+currentDate.textContent =
+    new Date().toLocaleDateString("en-US",{
+        weekday:"long",
+        year:"numeric",
+        month:"long",
+        day:"numeric"
+    });
 
 /* ==========================================
    Greeting
 ========================================== */
 
-function greeting() {
+const greeting = document.getElementById("greeting");
 
-    const hour = new Date().getHours();
+const hour = new Date().getHours();
 
-    let text = "Welcome";
+let text = "";
 
-    if (hour < 12) {
+if (hour >= 5 && hour < 12) {
 
-        text = "Good Morning";
+    text = "☀️ Good Morning";
 
-    } else if (hour < 18) {
+}
+else if (hour >= 12 && hour < 17) {
 
-        text = "Good Afternoon";
+    text = "🌤️ Good Afternoon";
 
-    } else {
+}
+else if (hour >= 17 && hour < 20) {
 
-        text = "Good Evening";
+    text = "🌇 Good Evening";
 
-    }
+}
+else {
 
-    const hero = document.querySelector(".hero h2");
-
-    if (hero) {
-        hero.textContent = text;
-    }
+    text = "🌙 Good Night";
 
 }
 
-greeting();
+greeting.textContent = text; 
 
 /* ==========================================
    Load Profile
