@@ -483,35 +483,26 @@ main{
 ======================= */
 
 .progress{
-
-    width:100%;
-
-    height:12px;
+    margin:18px 0;
+    height:10px;
 
     background:rgba(255,255,255,.08);
 
-    border-radius:100px;
+    border-radius:999px;
 
     overflow:hidden;
-
-    margin-bottom:12px;
-
 }
 
 .progress-fill{
-
     height:100%;
+
+    border-radius:999px;
 
     background:linear-gradient(
         90deg,
         var(--accent),
         var(--accent2)
     );
-
-    border-radius:100px;
-
-    transition:width .8s ease;
-
 }
 
 /* =======================
@@ -777,23 +768,30 @@ gap:30px;
 }
 
 .book-card{
+    background: rgba(255,255,255,.06);
+    backdrop-filter: blur(16px);
+    border: 1px solid rgba(255,255,255,.08);
 
-background:white;
+    border-radius:24px;
 
-border-radius:18px;
+    padding:28px;
 
-box-shadow:0 12px 30px rgba(0,0,0,.08);
+    margin-bottom:28px;
 
-padding:25px;
-
-transition:.25s;
-
+    transition:.3s;
+}
+.book-card h2{
+    color:var(--text);
+    font-size:1.8rem;
+    margin-bottom:8px;
+}
+.book-card p{
+    color:var(--muted);
 }
 
 .book-card:hover{
-
-transform:translateY(-8px);
-
+    transform:translateY(-5px);
+    border-color:rgba(110,168,254,.35);
 }
 
 .cover,
