@@ -200,6 +200,8 @@ saveBook.onclick = () => {
     }
 
     renderBooks();
+   populateBookDropdown();
+
     clearBookForm();
 
 };
@@ -211,6 +213,8 @@ function deleteBook(id) {
     books = books.filter(book => book.id !== id);
 
     renderBooks();
+   populateBookDropdown();
+
     clearBookForm();
 
 }
@@ -267,4 +271,63 @@ downloadBooks.onclick = () => {
 
 };
 clearBookForm();
+populateBookDropdown();
+clearNoteForm();
 
+/* ==========================================
+   Notes Manager
+========================================== */
+let notes = [];
+let editingNote = null;
+
+const noteId = document.getElementById("noteId");
+const noteBook = document.getElementById("noteBook");
+const noteTitle = document.getElementById("noteTitle");
+const noteDate = document.getElementById("noteDate");
+const notePages = document.getElementById("notePages");
+const noteContent = document.getElementById("noteContent");
+
+const saveNote = document.getElementById("saveNote");
+const clearNote = document.getElementById("clearNote");
+const noteList = document.getElementById("noteList");
+
+const notesPreview = document.getElementById("notesPreview");
+const copyNotes = document.getElementById("copyNotes");
+const downloadNotes = document.getElementById("downloadNotes");
+function nextNoteId() {
+    return notes.length === 0
+        ? 1
+        : Math.max(...notes.map(n => n.id)) + 1;
+}
+
+function populateBookDropdown() {
+
+    noteBook.innerHTML = `
+        <option value="">Select a book...</option>
+    `;
+
+    books.forEach(book => {
+
+        const option = document.createElement("option");
+
+        option.value = book.id;
+        option.textContent = book.title;
+
+        noteBook.appendChild(option);
+
+    });
+
+}
+
+function clearNoteForm() {
+
+    editingNote = null;
+
+    noteId.value = nextNoteId();
+    noteBook.value = "";
+    noteTitle.value = "";
+    noteDate.value = "";
+    notePages.value = "";
+    noteContent.value = "";
+
+}
