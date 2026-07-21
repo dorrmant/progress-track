@@ -1,21 +1,10 @@
 [
-{
-
-"date":"2026-07-20",
-
-"hours":5,
-
-"books":[1],
-
-"topics":[
-
-"Causality",
-
-"Logic"
-
-],
-
-"completed":true
-
-}
+  {
+    "date": "2026-07-21",
+    "status": "excellent",
+    "hours": 7.5,
+    "pages": 0,
+    "books": [Made the site today],
+    "notes": 0
+  }
 ]
