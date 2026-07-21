@@ -231,3 +231,36 @@ padding:25px;
 }
 
 }
+.book-card{
+
+background:white;
+
+padding:25px;
+
+margin:25px 0;
+
+border-radius:15px;
+
+box-shadow:0 4px 15px rgba(0,0,0,.08);
+
+}
+
+.book-card h2{
+
+margin-bottom:10px;
+
+font-family:"Cormorant Garamond",serif;
+
+}
+
+.book-card p{
+
+margin:8px 0;
+
+}
+
+.book-card button{
+
+margin-top:15px;
+
+}
