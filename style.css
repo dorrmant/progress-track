@@ -146,14 +146,12 @@ body{
 
 .logo p{
 
-    color:#d6d8df;
-
-    font-size:.92rem;
-
-    line-height:1.5;
-
-    margin-bottom:45px;
-
+   
+  color: var(--muted);
+    line-height: 1.5;
+    white-space: normal;
+    overflow-wrap: break-word;
+    word-break: break-word;
 }
 
 nav{
