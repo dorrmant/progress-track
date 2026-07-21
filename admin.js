@@ -67,3 +67,54 @@ cards.forEach(card => {
 
 // Default page
 openPanel("dashboard");
+let currentBookJSON = "";
+
+document.getElementById("generateBook").onclick = () => {
+
+    const book = {
+
+        id: Date.now(),
+
+        title: document.getElementById("bookTitle").value,
+
+        author: document.getElementById("bookAuthor").value,
+
+        status: document.getElementById("bookStatus").value,
+
+        started: document.getElementById("bookStarted").value,
+
+        finished: document.getElementById("bookFinished").value,
+
+        cover: document.getElementById("bookCover").value
+
+    };
+
+    currentBookJSON = JSON.stringify(book, null, 4);
+
+    document.getElementById("bookPreview").textContent = currentBookJSON;
+
+};
+
+document.getElementById("copyBook").onclick = () => {
+
+    navigator.clipboard.writeText(currentBookJSON);
+
+    alert("Copied!");
+
+};
+
+document.getElementById("downloadBook").onclick = () => {
+
+    const blob = new Blob([currentBookJSON], {
+        type: "application/json"
+    });
+
+    const a = document.createElement("a");
+
+    a.href = URL.createObjectURL(blob);
+
+    a.download = "book.json";
+
+    a.click();
+
+};
