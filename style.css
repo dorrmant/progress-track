@@ -146,12 +146,13 @@ body{
 
 .logo p{
 
-   
-  color: var(--muted);
+    color: var(--muted);
     line-height: 1.5;
     white-space: normal;
     overflow-wrap: break-word;
     word-break: break-word;
+
+    margin-bottom: 40px;
 }
 
 nav{
@@ -825,7 +826,10 @@ main{
     gap:15px;
 
 }
-
+.logo{
+    margin-top:70px;
+    margin-bottom:30px;
+}
 .section-header{
 
     flex-direction:column;
