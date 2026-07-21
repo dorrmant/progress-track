@@ -243,26 +243,33 @@
 
     position:fixed;
 
-    width:240px;
+    top:0;
+    left:0;
 
-    padding:16px;
+    width:260px;
+
+    padding:16px 18px;
+
+    background:#ffffff;
+
+    border:1px solid #e8e8e8;
 
     border-radius:14px;
 
-    background:white;
-
     box-shadow:
-        0 14px 32px rgba(0,0,0,.18);
+        0 12px 35px rgba(0,0,0,.18);
 
-    z-index:999;
+    z-index:9999;
 
     pointer-events:none;
 
     opacity:1;
 
+    transform:translateY(0);
+
     transition:
-        opacity .15s ease,
-        transform .15s ease;
+        opacity .18s ease,
+        transform .18s ease;
 
 }
 
@@ -272,30 +279,78 @@
 
     font-size:1rem;
 
+    font-weight:700;
+
     color:#222;
+
+    border-bottom:1px solid #ececec;
+
+    padding-bottom:8px;
 
 }
 
 .day-tooltip p{
 
-    margin:7px 0;
+    margin:8px 0;
 
     font-size:.92rem;
 
     color:#444;
 
+    line-height:1.45;
+
 }
 
 #tipBooks{
 
-    margin-top:8px;
+    margin-top:10px;
 
     line-height:1.5;
 
     font-size:.9rem;
 
+    color:#333;
+
 }
 
+/* ===========================
+   HIDDEN
+=========================== */
+
+.hidden{
+
+    opacity:0;
+
+    visibility:hidden;
+
+    transform:translateY(8px);
+
+}
+
+/* ===========================
+   TODAY
+=========================== */
+
+.today{
+
+    outline:3px solid #2563eb;
+
+    outline-offset:-3px;
+
+}
+
+/* ===========================
+   OPTIONAL
+=========================== */
+
+.day-cell:hover{
+
+    transform:translateY(-4px);
+
+    box-shadow:
+        0 8px 20px rgba(0,0,0,.18);
+
+}
 /* ===========================
    HIDDEN
 =========================== */
