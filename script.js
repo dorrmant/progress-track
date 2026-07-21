@@ -296,3 +296,29 @@ cards.forEach((card, index) => {
 });
 
 console.log("Ready");
+const menuToggle = document.getElementById("menuToggle");
+const sidebar = document.querySelector(".sidebar");
+
+if(menuToggle && sidebar){
+
+    menuToggle.addEventListener("click",()=>{
+
+        sidebar.classList.toggle("active");
+
+    });
+
+    document.addEventListener("click",(e)=>{
+
+        if(
+            window.innerWidth <= 900 &&
+            !sidebar.contains(e.target) &&
+            !menuToggle.contains(e.target)
+        ){
+
+            sidebar.classList.remove("active");
+
+        }
+
+    });
+
+}
