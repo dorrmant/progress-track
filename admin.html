@@ -107,6 +107,8 @@
 
 
         <!-- Books -->
+<!-- Books -->
+
 <section id="books" class="panel">
 
     <h2>📚 Books Manager</h2>
@@ -119,11 +121,47 @@
 
             <h3>Add / Edit Book</h3>
 
+            <label>ID</label>
+            <input
+                type="number"
+                id="bookId"
+                placeholder="Auto-generated"
+                readonly
+            >
+
             <label>Title</label>
-            <input type="text" id="bookTitle">
+            <input
+                type="text"
+                id="bookTitle"
+                placeholder="Ibn Taymiyyah against the Greek Logicians"
+            >
 
             <label>Author</label>
-            <input type="text" id="bookAuthor">
+            <input
+                type="text"
+                id="bookAuthor"
+                placeholder="Wael b. Hallaq"
+            >
+
+            <label>Total Pages</label>
+            <input
+                type="number"
+                id="bookPages"
+                placeholder="203"
+            >
+
+            <label>Current Page</label>
+            <input
+                type="number"
+                id="bookCurrentPage"
+                placeholder="61"
+            >
+
+            <label>Started</label>
+            <input
+                type="date"
+                id="bookStarted"
+            >
 
             <label>Status</label>
 
@@ -132,19 +170,6 @@
                 <option value="completed">✓ Completed</option>
                 <option value="planned">📚 Planned</option>
             </select>
-
-            <label>Total Pages</label>
-            <input type="number" id="bookPages">
-
-            <label>Current Page</label>
-            <input type="number" id="bookCurrentPage">
-
-            <label>Cover Image</label>
-            <input
-                type="text"
-                id="bookCover"
-                placeholder="assets/covers/example.jpg"
-            >
 
             <button id="saveBook">
                 💾 Save Book
@@ -158,6 +183,24 @@
             </button>
 
         </div>
+
+        <!-- Right -->
+
+        <div class="editor-card">
+
+            <h3>Current Books</h3>
+
+            <div id="bookList">
+
+                <p>No books yet.</p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
 
         <!-- Right -->
 
