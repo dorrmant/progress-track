@@ -3,7 +3,7 @@
 // The Study Ledger
 // ==========================================
 
-// Elements
+// ---------- Elements ----------
 
 const calendarGrid = document.getElementById("calendarGrid");
 const currentMonth = document.getElementById("currentMonth");
@@ -20,18 +20,16 @@ const tipPages = document.getElementById("tipPages");
 const tipBooks = document.getElementById("tipBooks");
 const tipNotes = document.getElementById("tipNotes");
 
-// ------------------------------------------
+// ---------- Variables ----------
 
 let logs = [];
 
-let today = new Date();
+const today = new Date();
 
 let currentYear = today.getFullYear();
 let currentMonthIndex = today.getMonth();
 
-// ==========================================
-// Month Names
-// ==========================================
+// ---------- Month Names ----------
 
 const MONTHS = [
 
@@ -52,6 +50,40 @@ const MONTHS = [
 ];
 
 // ==========================================
+// Format Date
+// ==========================================
+
+function formatDate(year, month, day) {
+
+    return `${year}-${String(month + 1).padStart(2, "0")}-${String(day).padStart(2, "0")}`;
+
+}
+
+// ==========================================
+// Load Logs
+// ==========================================
+
+async function loadLogs() {
+
+    try {
+
+        const response = await fetch("data/logs.json");
+
+        logs = await response.json();
+
+        renderCalendar();
+
+    } catch (error) {
+
+        console.error("Unable to load logs.json", error);
+
+        renderCalendar();
+
+    }
+
+}
+
+// ==========================================
 // Render Calendar
 // ==========================================
 
@@ -70,7 +102,7 @@ function renderCalendar() {
 
     let startDay = firstDay.getDay();
 
-    // Convert Sunday = 0 to Monday = 0
+    // Monday first
 
     startDay = (startDay + 6) % 7;
 
@@ -88,7 +120,7 @@ function renderCalendar() {
 
     }
 
-    // Day cells
+    // Days
 
     for (let day = 1; day <= totalDays; day++) {
 
@@ -98,8 +130,12 @@ function renderCalendar() {
 
         cell.textContent = day;
 
-        cell.dataset.date =
+        const date =
             formatDate(currentYear, currentMonthIndex, day);
+
+        cell.dataset.date = date;
+
+        colorCell(cell, date);
 
         calendarGrid.appendChild(cell);
 
@@ -108,12 +144,56 @@ function renderCalendar() {
 }
 
 // ==========================================
-// Date Formatter
+// Color Day Cell
 // ==========================================
 
-function formatDate(year, month, day) {
+function colorCell(cell, date) {
 
-    return `${year}-${String(month + 1).padStart(2, "0")}-${String(day).padStart(2, "0")}`;
+    const todayString = formatDate(
+        today.getFullYear(),
+        today.getMonth(),
+        today.getDate()
+    );
+
+    if (date > todayString) {
+
+        cell.classList.add("future");
+        return;
+
+    }
+
+    const log =
+        logs.find(entry => entry.date === date);
+
+    if (!log) {
+
+        cell.classList.add("missing");
+        return;
+
+    }
+
+    switch (log.status) {
+
+        case "excellent":
+
+            cell.classList.add("excellent");
+            break;
+
+        case "good":
+
+            cell.classList.add("good");
+            break;
+
+        case "nostudy":
+
+            cell.classList.add("nostudy");
+            break;
+
+        default:
+
+            cell.classList.add("missing");
+
+    }
 
 }
 
@@ -121,38 +201,38 @@ function formatDate(year, month, day) {
 // Navigation
 // ==========================================
 
-prevMonth.onclick = () => {
+prevMonth.addEventListener("click", () => {
 
     currentMonthIndex--;
 
     if (currentMonthIndex < 0) {
 
         currentMonthIndex = 11;
-
         currentYear--;
 
     }
 
     renderCalendar();
 
-};
+});
 
-nextMonth.onclick = () => {
+nextMonth.addEventListener("click", () => {
 
     currentMonthIndex++;
 
     if (currentMonthIndex > 11) {
 
         currentMonthIndex = 0;
-
         currentYear++;
 
     }
 
     renderCalendar();
 
-};
+});
 
 // ==========================================
+// Start
+// ==========================================
 
-renderCalendar();
+loadLogs();
