@@ -1,3 +1,7 @@
+/* ==========================================
+   THE STUDY LEDGER CMS
+========================================== */
+
 const panels = document.querySelectorAll(".panel");
 const navButtons = document.querySelectorAll(".nav-btn");
 const cards = document.querySelectorAll(".card");
@@ -11,31 +15,24 @@ const titles = {
     export: "Export"
 };
 
+/* ==========================================
+   Navigation
+========================================== */
+
 function openPanel(panelName) {
 
-    // Hide all panels
-    panels.forEach(panel => {
-        panel.classList.remove("active");
-    });
+    panels.forEach(panel => panel.classList.remove("active"));
+    navButtons.forEach(button => button.classList.remove("active"));
 
-    // Remove active nav button
-    navButtons.forEach(button => {
-        button.classList.remove("active");
-    });
+    document.getElementById(panelName)?.classList.add("active");
 
-    // Show selected panel
-    document.getElementById(panelName).classList.add("active");
-
-    // Highlight sidebar button
     document
         .querySelector(`.nav-btn[data-panel="${panelName}"]`)
         ?.classList.add("active");
 
-    // Update page title
     document.getElementById("pageTitle").textContent =
         titles[panelName] || "Dashboard";
 
-    // Scroll to top
     window.scrollTo({
         top: 0,
         behavior: "smooth"
@@ -43,7 +40,6 @@ function openPanel(panelName) {
 
 }
 
-// Sidebar buttons
 navButtons.forEach(button => {
 
     button.addEventListener("click", () => {
@@ -54,7 +50,6 @@ navButtons.forEach(button => {
 
 });
 
-// Dashboard cards
 cards.forEach(card => {
 
     card.addEventListener("click", () => {
@@ -65,85 +60,71 @@ cards.forEach(card => {
 
 });
 
-// Default page
 openPanel("dashboard");
-let currentBookJSON = "";
 
-document.getElementById("generateBook").onclick = () => {
-
-    const book = {
-
-        id: Date.now(),
-
-        title: document.getElementById("bookTitle").value,
-
-        author: document.getElementById("bookAuthor").value,
-
-        status: document.getElementById("bookStatus").value,
-
-        started: document.getElementById("bookStarted").value,
-
-        finished: document.getElementById("bookFinished").value,
-
-        cover: document.getElementById("bookCover").value
-
-    };
-
-    currentBookJSON = JSON.stringify(book, null, 4);
-
-    document.getElementById("bookPreview").textContent = currentBookJSON;
-
-};
-
-document.getElementById("copyBook").onclick = () => {
-
-    navigator.clipboard.writeText(currentBookJSON);
-
-    alert("Copied!");
-
-};
-
-document.getElementById("downloadBook").onclick = () => {
-
-    const blob = new Blob([currentBookJSON], {
-        type: "application/json"
-    });
-
-    const a = document.createElement("a");
-
-    a.href = URL.createObjectURL(blob);
-
-    a.download = "book.json";
-
-    a.click();
-
-};
-/* ==========================
+/* ==========================================
    Books Manager
-========================== */
+========================================== */
 
 let books = [];
-
 let editingBook = null;
 
-const saveBook = document.getElementById("saveBook");
+const bookId = document.getElementById("bookId");
+const bookTitle = document.getElementById("bookTitle");
+const bookAuthor = document.getElementById("bookAuthor");
+const bookPages = document.getElementById("bookPages");
+const bookCurrentPage = document.getElementById("bookCurrentPage");
+const bookStarted = document.getElementById("bookStarted");
+const bookStatus = document.getElementById("bookStatus");
 
+const saveBook = document.getElementById("saveBook");
 const clearBook = document.getElementById("clearBook");
 
-clearBook.onclick = clearBookForm;
+function clearBookForm() {
 
-saveBook.onclick = () => {
+    if (bookId) bookId.value = "";
+    if (bookTitle) bookTitle.value = "";
+    if (bookAuthor) bookAuthor.value = "";
+    if (bookPages) bookPages.value = "";
+    if (bookCurrentPage) bookCurrentPage.value = "";
+    if (bookStarted) bookStarted.value = "";
+    if (bookStatus) bookStatus.value = "reading";
 
-    const title = document.getElementById("bookTitle").value.trim();
+    editingBook = null;
 
-    if(title===""){
+}
 
-        alert("Book title required.");
+clearBook?.addEventListener("click", clearBookForm);
 
+saveBook?.addEventListener("click", () => {
+
+    if (bookTitle.value.trim() === "") {
+
+        alert("Please enter a book title.");
         return;
 
     }
 
-    console.log("Book ready to save.");
+    const book = {
 
-};
+        id: editingBook ?? books.length + 1,
+
+        title: bookTitle.value.trim(),
+
+        author: bookAuthor.value.trim(),
+
+        pages: Number(bookPages.value),
+
+        currentPage: Number(bookCurrentPage.value),
+
+        started: bookStarted.value,
+
+        status: bookStatus.value
+
+    };
+
+    console.log(book);
+
+    alert("Book object created successfully.\n(Check the console)");
+
+});
