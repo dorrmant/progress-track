@@ -126,14 +126,14 @@ async function loadBooks(){
 
         if(progressText){
 
-            const percent = Math.round(
-                currentBook.currentPage /
-                currentBook.totalPages *
-                100
-            );
+           const percent = Math.round(
+    currentBook.currentPage /
+    currentBook.pages *
+    100
+);
 
-            progressText.textContent =
-                `${currentBook.currentPage} / ${currentBook.totalPages} pages (${percent}%)`;
+progressText.textContent =
+`${currentBook.currentPage} / ${currentBook.pages} pages (${percent}%)`;
 
             const fill = document.querySelector(".progress-fill");
 
