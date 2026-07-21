@@ -1,26 +1,66 @@
-fetch("data/books.json")
-.then(response => response.json())
-.then(books => {
+async function loadLibrary(){
 
-const library = document.getElementById("library");
+const response=await fetch("data/books.json");
 
-books.forEach(book => {
+const books=await response.json();
 
-const percent = Math.round(book.currentPage / book.totalPages * 100);
+const grid=document.getElementById("libraryGrid");
 
-library.innerHTML += `
+grid.innerHTML="";
 
-<div class="book-card">
+books.forEach(book=>{
 
-<h2>${book.title}</h2>
+const percent=Math.round(
+book.currentPage/book.pages*100
+);
 
-<p><strong>Author:</strong> ${book.author}</p>
+const card=document.createElement("div");
 
-<p>${book.currentPage} / ${book.totalPages} pages</p>
+card.className="book-card";
 
-<p>${percent}% Complete</p>
+card.innerHTML=`
 
-<p>${book.notes.length} Notes</p>
+<div class="book-cover">
+
+📘
+
+</div>
+
+<h2>
+
+${book.title}
+
+</h2>
+
+<p>
+
+${book.author}
+
+</p>
+
+<div class="progress">
+
+<div class="progress-fill"
+
+style="width:${percent}%">
+
+</div>
+
+</div>
+
+<small>
+
+${book.currentPage} /
+
+${book.pages}
+
+pages
+
+(${percent}%)
+
+</small>
+
+<br><br>
 
 <button onclick="location.href='book.html?id=${book.id}'">
 
@@ -28,10 +68,12 @@ Open Book
 
 </button>
 
-</div>
-
 `;
 
-});
+grid.appendChild(card);
 
 });
+
+}
+
+loadLibrary();
