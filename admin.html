@@ -107,14 +107,65 @@
 
 
         <!-- Books -->
+<section id="books" class="panel">
 
-        <section id="books" class="panel">
+    <h2>📚 Books</h2>
 
-            <h2>Books</h2>
+    <div class="editor-grid">
 
-            <p>This section will generate and update <strong>books.json</strong>.</p>
+        <div class="editor-card">
 
-        </section>
+            <label>Title</label>
+            <input type="text" id="bookTitle">
+
+            <label>Author</label>
+            <input type="text" id="bookAuthor">
+
+            <label>Status</label>
+            <select id="bookStatus">
+                <option value="reading">Reading</option>
+                <option value="completed">Completed</option>
+                <option value="planned">Planned</option>
+            </select>
+
+            <label>Started</label>
+            <input type="date" id="bookStarted">
+
+            <label>Finished</label>
+            <input type="date" id="bookFinished">
+
+            <label>Cover URL</label>
+            <input type="text" id="bookCover">
+
+            <button id="generateBook">
+                Generate JSON
+            </button>
+
+        </div>
+
+        <div class="editor-card">
+
+            <h3>JSON Preview</h3>
+
+            <pre id="bookPreview">{ }</pre>
+
+            <div class="btn-row">
+
+                <button id="copyBook">
+                    📋 Copy
+                </button>
+
+                <button id="downloadBook">
+                    ⬇ Download
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
 
 
         <!-- Notes -->
