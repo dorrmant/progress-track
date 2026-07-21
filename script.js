@@ -254,9 +254,11 @@ async function loadNotes() {
 
                     </div>
 
-                    <button>
-                        Read →
-                    </button>
+                   <button onclick="location.href='note.html?id=${note.id}'">
+
+Read →
+
+</button>
 
                 </div>
             `;
