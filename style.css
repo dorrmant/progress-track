@@ -955,3 +955,120 @@ margin-bottom:18px;
     margin-bottom:30px;
 
 }
+.note-page{
+
+    max-width:900px;
+
+    margin:60px auto;
+
+    padding:20px;
+
+}
+
+.note-card{
+
+    padding:50px;
+
+}
+
+.back-btn{
+
+    margin-bottom:25px;
+
+}
+
+#noteTitle{
+
+    font-family:"Cormorant Garamond",serif;
+
+    font-size:3rem;
+
+    margin-bottom:10px;
+
+    line-height:1.2;
+
+}
+
+#noteMeta{
+
+    color:var(--muted);
+
+    margin-bottom:25px;
+
+}
+
+#noteContent{
+
+    line-height:2;
+
+    font-size:1.05rem;
+
+    white-space:pre-wrap;
+
+    color:var(--text);
+
+}
+
+#noteContent h2{
+
+    margin-top:40px;
+
+    margin-bottom:15px;
+
+    font-size:2rem;
+
+    font-family:"Cormorant Garamond",serif;
+
+}
+
+#noteContent h3{
+
+    margin-top:30px;
+
+    margin-bottom:10px;
+
+}
+
+#noteContent p{
+
+    margin-bottom:16px;
+
+}
+
+#noteContent ul{
+
+    margin-left:25px;
+
+    margin-bottom:18px;
+
+}
+
+#noteContent hr{
+
+    margin:30px 0;
+
+}
+
+@media(max-width:768px){
+
+.note-page{
+
+    margin:25px auto;
+
+    padding:15px;
+
+}
+
+.note-card{
+
+    padding:25px;
+
+}
+
+#noteTitle{
+
+    font-size:2.2rem;
+
+}
+
+}
