@@ -75,7 +75,35 @@ body{
     min-height:100vh;
 
 }
+#noteContent{
 
+    line-height:2;
+
+    font-size:1.05rem;
+
+    color:var(--text);
+
+    white-space:pre-wrap;
+
+}
+
+#noteTitle{
+
+    font-family:"Cormorant Garamond",serif;
+
+    font-size:3rem;
+
+    margin-bottom:10px;
+
+}
+
+#noteMeta{
+
+    color:var(--muted);
+
+    margin-bottom:25px;
+
+}
 /* =======================
    Sidebar
 ======================= */
