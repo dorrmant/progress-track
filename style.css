@@ -12,21 +12,25 @@
 
 :root{
 
-    --bg:#f5f3ef;
+    --bg:#0b1020;
 
-    --card:#ffffff;
+    --bg2:#161d31;
 
-    --sidebar:#112240;
+    --card:rgba(255,255,255,.06);
 
-    --accent:#b28b3d;
+    --sidebar:rgba(10,16,30,.55);
 
-    --text:#202020;
+    --accent:#6EA8FE;
 
-    --muted:#6b7280;
+    --accent2:#8B5CF6;
 
-    --border:#e5e7eb;
+    --text:#F5F7FA;
 
-    --shadow:0 10px 25px rgba(0,0,0,.08);
+    --muted:#9CA3AF;
+
+    --border:rgba(255,255,255,.08);
+
+    --shadow:0 15px 40px rgba(0,0,0,.35);
 
     --radius:18px;
 
@@ -40,13 +44,21 @@ html{
 
 body{
 
-    background:var(--bg);
+    background:
+    linear-gradient(
+        135deg,
+        #0b1020 0%,
+        #121826 45%,
+        #1b103c 100%
+    );
 
     color:var(--text);
 
     font-family:'Inter',sans-serif;
 
     line-height:1.6;
+
+    min-height:100vh;
 
 }
 
@@ -70,7 +82,11 @@ body{
 
 .sidebar{
 
-    background:var(--sidebar);
+    background:rgba(12,18,32,.55);
+
+    backdrop-filter:blur(20px);
+
+    border-right:1px solid var(--border);
 
     color:white;
 
@@ -142,25 +158,17 @@ nav a:hover{
 
     background:rgba(255,255,255,.08);
 
-    transform:translateX(5px);
+    transform:translateX(6px);
 
 }
 
 nav a.active{
 
-    background:var(--accent);
-
-    color:white;
-
-}
-
-.sidebar-footer{
-
-    margin-top:auto;
-
-    color:#cbd5e1;
-
-    font-size:.85rem;
+    background:linear-gradient(
+        135deg,
+        var(--accent),
+        var(--accent2)
+    );
 
 }
 
@@ -208,33 +216,11 @@ main{
 
 .date-box{
 
-    background:white;
+    background:var(--card);
 
-    border-radius:16px;
+    backdrop-filter:blur(18px);
 
-    box-shadow:var(--shadow);
-
-    padding:20px 24px;
-
-    text-align:center;
-
-    min-width:170px;
-
-}
-
-.date-box span{
-
-    color:var(--muted);
-
-    font-size:.85rem;
-
-}
-
-.date-box h3{
-
-    margin-top:6px;
-
-    font-size:1.5rem;
+    border:1px solid var(--border);
 
 }
 
@@ -308,23 +294,17 @@ main{
 
 }
 
-.stat h3{
+.stat h1{
 
-    color:var(--muted);
+    font-size:3.4rem;
 
-    font-size:1rem;
-
-    font-weight:600;
+    color:white;
 
 }
 
-.stat h1{
+.stat h3{
 
-    font-size:3rem;
-
-    margin:14px 0;
-
-    color:var(--sidebar);
+    color:var(--muted);
 
 }
 
@@ -387,29 +367,6 @@ main{
 
 }
 
-.cover{
-
-    width:90px;
-
-    height:120px;
-
-    background:#112240;
-
-    color:white;
-
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
-
-    border-radius:14px;
-
-    font-size:2rem;
-
-    flex-shrink:0;
-
-}
 
 .book-info{
 
@@ -445,7 +402,7 @@ main{
 
     height:12px;
 
-    background:#ececec;
+    background:rgba(255,255,255,.08);
 
     border-radius:100px;
 
@@ -461,11 +418,13 @@ main{
 
     background:linear-gradient(
         90deg,
-        #b28b3d,
-        #d8b45d
+        var(--accent),
+        var(--accent2)
     );
 
     border-radius:100px;
+
+    transition:width .8s ease;
 
 }
 
@@ -523,30 +482,33 @@ button{
 
     border:none;
 
-    background:var(--sidebar);
+    background:linear-gradient(
+        135deg,
+        var(--accent),
+        var(--accent2)
+    );
 
     color:white;
 
-    padding:10px 18px;
+    padding:11px 22px;
 
-    border-radius:10px;
+    border-radius:12px;
 
     cursor:pointer;
 
-    font-size:.95rem;
-
     transition:.25s;
+
+    font-weight:600;
 
 }
 
 button:hover{
 
-    background:var(--accent);
+    transform:translateY(-3px);
 
-    transform:translateY(-2px);
+    box-shadow:0 10px 25px rgba(110,168,254,.35);
 
 }
-
 /* =======================
    Footer
 ======================= */
@@ -569,9 +531,29 @@ footer{
    Utility
 ======================= */
 
-.card + .card{
+.card{
 
-    margin-top:28px;
+    background:var(--card);
+
+    backdrop-filter:blur(18px);
+
+    border:1px solid var(--border);
+
+    border-radius:var(--radius);
+
+    box-shadow:var(--shadow);
+
+    padding:28px;
+
+    transition:.3s ease;
+
+}
+
+.card:hover{
+
+    transform:translateY(-5px);
+
+    box-shadow:0 20px 45px rgba(0,0,0,.45);
 
 }
 
@@ -684,30 +666,18 @@ font-size:1.8rem;
 /* =======================
    Scrollbar
 ======================= */
-
-::-webkit-scrollbar{
-
-width:10px;
-
-}
-
 ::-webkit-scrollbar-track{
 
-background:#ececec;
+background:#0b1020;
 
 }
 
 ::-webkit-scrollbar-thumb{
 
-background:#b28b3d;
-
-border-radius:20px;
-
-}
-
-::-webkit-scrollbar-thumb:hover{
-
-background:#8f6d2b;
+background:linear-gradient(
+    var(--accent),
+    var(--accent2)
+);
 
 }
 #libraryGrid{
@@ -740,25 +710,16 @@ transform:translateY(-8px);
 
 }
 
+.cover,
 .book-cover{
 
-height:180px;
+    background:linear-gradient(
+        135deg,
+        #253861,
+        #121826
+    );
 
-background:#112240;
-
-border-radius:12px;
-
-display:flex;
-
-justify-content:center;
-
-align-items:center;
-
-font-size:3rem;
-
-color:white;
-
-margin-bottom:20px;
+    border:1px solid var(--border);
 
 }
 
