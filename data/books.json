@@ -36,6 +36,24 @@
     "started": "2026-01-02",
     "finished": "2026-01-02",
     "status": "completed"
+  },
+  {
+    "id": 6,
+    "title": "Defining without Essences: Ibn Taymiyya’sCritique of Aristotelian Logic",
+    "author": "Sherif Salem",
+    "pages": 24,
+    "currentPage": 24,
+    "started": "2026-01-02",
+    "finished": "2026-01-02",
+    "status": "completed"
+  },{   "id": 7,
+    "title": "Defining without Essences: Ibn Taymiyya’sCritique of Aristotelian Logic",
+    "author": "Sherif Salem",
+    "pages": 24,
+    "currentPage": 24,
+    "started": "2026-01-02",
+    "finished": "2026-01-02",
+    "status": "completed"
   }
 ]
 
