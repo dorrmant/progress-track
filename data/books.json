@@ -17,8 +17,7 @@
     "started": "2026-07-20",
     "finished": "2026-07-21",
     "status": "completed"
-  }
-]
+  },
   {
     "id": 4,
     "title": "Naqd Uthman b. Saīd ‘ala-l-Marrīsi al-Jahmī al-‘Anid Fīmā Iftarā ‘ala Allāhī fīt-Tawhīd",
@@ -28,5 +27,15 @@
     "started": "2023-05-20",
     "finished": "2023-06-12",
     "status": "completed"
+  }, {
+    "id": 5,
+    "title": "Ibn Taymiyya’s Criticism of the Syllogism",
+    "author": "Sobhi Rayan",
+    "pages": 23,
+    "currentPage": 23,
+    "started": "2026-01-02",
+    "finished": "2026-01-02",
+    "status": "completed"
   }
 ]
+
