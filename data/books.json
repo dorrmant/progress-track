@@ -1,0 +1,44 @@
+[
+  {
+    "id": 1,
+    "slug": "ibn-taymiyyah-causality",
+    "title": "Ibn Taymiyyah on Causality",
+    "author": "Tallal Zeni",
+    "totalPages": 210,
+    "currentPage": 142,
+    "started": "2026-07-12",
+    "lastRead": "2026-07-21",
+    "status": "reading",
+    "notes": [
+      {
+        "date": "2026-07-20",
+        "pages": "1-19",
+        "file": "notes/ibn-taymiyyah-causality/2026-07-20.html"
+      },
+      {
+        "date": "2026-07-21",
+        "pages": "20-42",
+        "file": "notes/ibn-taymiyyah-causality/2026-07-21.html"
+      }
+    ]
+  },
+
+  {
+    "id": 2,
+    "slug": "linux-bible",
+    "title": "Linux Bible",
+    "author": "Christopher Negus",
+    "totalPages": 800,
+    "currentPage": 320,
+    "started": "2026-06-28",
+    "lastRead": "2026-07-20",
+    "status": "reading",
+    "notes": [
+      {
+        "date": "2026-07-20",
+        "pages": "300-320",
+        "file": "notes/linux-bible/2026-07-20.html"
+      }
+    ]
+  }
+]
