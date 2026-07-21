@@ -1,141 +1,325 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Study Ledger</title>
 
-<title>The Study Ledger</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<aside>
+<div class="container">
 
-<h1>The Study Ledger</h1>
+    <!-- ================= Sidebar ================= -->
 
-<nav>
+    <aside class="sidebar">
 
-<a href="#">Dashboard</a>
+        <div class="logo">
 
-<a href="#">Library</a>
+            <h1>The Study Ledger</h1>
 
-<a href="#">Daily Logs</a>
+            <p>
+                A public record of reading,<br>
+                research & learning.
+            </p>
 
-<a href="#">Statistics</a>
+        </div>
 
-<a href="#">Notes</a>
+        <nav>
 
-<a href="#">About</a>
+            <a class="active" href="index.html">
+                Dashboard
+            </a>
 
-</nav>
+            <a href="library.html">
+                Library
+            </a>
 
-</aside>
+            <a href="daily.html">
+                Daily Log
+            </a>
 
-<main>
+            <a href="statistics.html">
+                Statistics
+            </a>
 
-<header>
+            <a href="search.html">
+                Search
+            </a>
 
-<h2>A public record of reading, research & learning.</h2>
+            <a href="about.html">
+                About
+            </a>
 
-</header>
+        </nav>
 
-<section class="stats">
+        <div class="sidebar-footer">
 
-<div class="card">
-<h3>🔥</h3>
-<h1>17</h1>
-<p>Day Streak</p>
+            <small>
+
+                GitHub Pages
+
+                <br>
+
+                2026 Edition
+
+            </small>
+
+        </div>
+
+    </aside>
+
+    <!-- ================= Main ================= -->
+
+    <main>
+
+        <!-- Header -->
+
+        <header class="hero">
+
+            <div>
+
+                <h2>
+
+                    Welcome back.
+
+                </h2>
+
+                <p>
+
+                    Keep building your archive one reading session at a time.
+
+                </p>
+
+            </div>
+
+            <div class="date-box">
+
+                <span>Today's Focus</span>
+
+                <h3>Research</h3>
+
+            </div>
+
+        </header>
+
+        <!-- Quote -->
+
+        <section class="quote">
+
+            <h3>Quote of the Day</h3>
+
+            <blockquote>
+
+                "The ink of the scholar is more sacred than the blood of the martyr."
+
+            </blockquote>
+
+        </section>
+
+        <!-- Statistics -->
+
+        <section class="stats-grid">
+
+            <div class="card stat">
+
+                <h3>Books</h3>
+
+                <h1>2</h1>
+
+                <span>Currently Reading</span>
+
+            </div>
+
+            <div class="card stat">
+
+                <h3>Pages</h3>
+
+                <h1>462</h1>
+
+                <span>Total Read</span>
+
+            </div>
+
+            <div class="card stat">
+
+                <h3>Notes</h3>
+
+                <h1>3</h1>
+
+                <span>Research Notes</span>
+
+            </div>
+
+            <div class="card stat">
+
+                <h3>Hours</h3>
+
+                <h1>18</h1>
+
+                <span>Study Time</span>
+
+            </div>
+
+        </section>
+
+        <!-- Current Reading -->
+
+        <section class="card">
+
+            <div class="section-header">
+
+                <h2>Currently Reading</h2>
+
+                <a href="library.html">
+
+                    View Library →
+
+                </a>
+
+            </div>
+
+            <div class="book-preview">
+
+                <div class="cover">
+
+                    📘
+
+                </div>
+
+                <div class="book-info">
+
+                    <h3>
+
+                        Ibn Taymiyyah on Causality
+
+                    </h3>
+
+                    <p>
+
+                        Tallal Zeni
+
+                    </p>
+
+                    <div class="progress">
+
+                        <div class="progress-fill" style="width:68%;"></div>
+
+                    </div>
+
+                    <small>
+
+                        142 / 210 pages (68%)
+
+                    </small>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- Recent Notes -->
+
+        <section class="card">
+
+            <div class="section-header">
+
+                <h2>
+
+                    Recent Notes
+
+                </h2>
+
+            </div>
+
+            <div class="note">
+
+                <div>
+
+                    <strong>
+
+                        21 July 2026
+
+                    </strong>
+
+                    <p>
+
+                        Ibn Taymiyyah on Causality
+
+                    </p>
+
+                    <small>
+
+                        Pages 20–42
+
+                    </small>
+
+                </div>
+
+                <button>
+
+                    Read →
+
+                </button>
+
+            </div>
+
+            <div class="note">
+
+                <div>
+
+                    <strong>
+
+                        20 July 2026
+
+                    </strong>
+
+                    <p>
+
+                        Linux Bible
+
+                    </p>
+
+                    <small>
+
+                        Pages 300–320
+
+                    </small>
+
+                </div>
+
+                <button>
+
+                    Read →
+
+                </button>
+
+            </div>
+
+        </section>
+
+        <!-- Footer -->
+
+        <footer>
+
+            © 2026 The Study Ledger
+
+        </footer>
+
+    </main>
+
 </div>
 
-<div class="card">
-<h3>⏱</h3>
-<h1>312</h1>
-<p>Hours</p>
-</div>
-
-<div class="card">
-<h3>📚</h3>
-<h1>18</h1>
-<p>Books</p>
-</div>
-
-<div class="card">
-<h3>📝</h3>
-<h1>243</h1>
-<p>Notes</p>
-</div>
-
-</section>
-
-<section>
-
-<h2>Currently Reading</h2>
-
-<div class="book">
-
-<div>
-
-<h3>Ibn Taymiyyah on Causality</h3>
-
-<p>142 / 210 pages</p>
-
-</div>
-
-<div>
-
-67%
-
-</div>
-
-</div>
-
-<div class="progress">
-
-<div class="fill" style="width:67%"></div>
-
-</div>
-
-<br>
-
-<button>Open Book</button>
-
-</section>
-
-<section>
-
-<h2>Recent Notes</h2>
-
-<div class="note">
-
-<p><strong>21 Jul 2026</strong></p>
-
-<p>Pages 20–42</p>
-
-<button>Read</button>
-
-</div>
-
-<div class="note">
-
-<p><strong>20 Jul 2026</strong></p>
-
-<p>Pages 1–19</p>
-
-<button>Read</button>
-
-</div>
-
-</section>
-
-</main>
+<script src="script.js"></script>
 
 </body>
 </html>
