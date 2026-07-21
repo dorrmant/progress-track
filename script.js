@@ -222,6 +222,71 @@ async function loadStatistics() {
 
 loadStatistics();
 /* ==========================================
+   Recent Notes
+========================================== */
+
+async function loadNotes() {
+
+    try {
+
+        const response = await fetch("data/notes.json");
+
+        if (!response.ok) return;
+
+        const notes = await response.json();
+
+        const container = document.getElementById("recentNotes");
+
+        if (!container) return;
+
+        if (notes.length === 0) {
+
+            container.innerHTML = `
+                <p style="color:#777;">No notes yet.</p>
+            `;
+
+            return;
+
+        }
+
+        container.innerHTML = "";
+
+        notes.forEach(note => {
+
+            container.innerHTML += `
+                <div class="note">
+
+                    <div>
+
+                        <strong>${note.date}</strong>
+
+                        <p>${note.title}</p>
+
+                        <small>Pages ${note.pages}</small>
+
+                    </div>
+
+                    <button>
+                        Read →
+                    </button>
+
+                </div>
+            `;
+
+        });
+
+    }
+
+    catch (error) {
+
+        console.error(error);
+
+    }
+
+}
+
+loadNotes();
+/* ==========================================
    Fade Cards
 ========================================== */
 
