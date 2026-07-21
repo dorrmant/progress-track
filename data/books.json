@@ -1,17 +1,11 @@
 [
-{
-"id":1,
-
-"title":"Ibn Taymiyyah on Causality",
-
-"author":"Tallal Zeni",
-
-"pages":210,
-
-"started":"2026-07-12",
-
-"status":"reading",
-
-"cover":"covers/causality.jpg"
-}
+  {
+    "id": 1,
+    "title": "Ibn Taymiyyah against the Greek Logicians",
+    "author": "Wael b. Hallaq",
+    "pages": 203,
+    "currentPage": 61,
+    "started": "2026-05-12",
+    "status": "reading"
+  }
 ]
