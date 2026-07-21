@@ -21,61 +21,25 @@
 
 <body>
 
-<button class="menu-toggle" id="menuToggle">
-&#9776;
-</button>
+<main class="note-page">
 
-<div class="container">
+    <button class="back-btn" onclick="history.back()">
+        ← Back
+    </button>
 
-<aside class="sidebar">
+    <article class="card note-card">
 
-<div class="logo">
+        <h1 id="noteTitle"></h1>
 
-<h1>The Study Ledger</h1>
+        <p id="noteMeta"></p>
 
-<p>My public record of reading and learning.</p>
+        <hr>
 
-</div>
+        <div id="noteContent"></div>
 
-<nav>
-
-<a href="index.html">🏠 Dashboard</a>
-
-<a href="library.html">📚 Library</a>
-
-<a class="active" href="note.html">📝 Notes</a>
-
-<a href="about.html">ℹ️ About</a>
-
-</nav>
-
-</aside>
-
-<main>
-
-<div class="card">
-
-<h1 id="noteTitle"></h1>
-
-<p id="noteMeta"></p>
-
-<hr style="margin:20px 0;border-color:rgba(255,255,255,.1);">
-
-<div id="noteContent"></div>
-
-<br>
-
-<button onclick="history.back()">
-
-← Back
-
-</button>
-
-</div>
+    </article>
 
 </main>
-
-</div>
 
 <script src="note.js"></script>
 
