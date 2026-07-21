@@ -7,17 +7,15 @@
     "currentPage": 61,
     "started": "2026-05-12",
     "status": "reading"
+  },
+  {
+    "id": 2,
+    "title": "God Spatially Above and Spatially Extended: The Rationality of Ibn Taymiyya’s Refutation of Faḫr al-Dīn al-Rāzī’s Ašʿarī Incorporealism",
+    "author": "John Hoover",
+    "pages": 49,
+    "currentPage": 49,
+    "started": "2026-07-20",
+    "finished": "2026-07-21",
+    "status": "completed"
   }
 ]
-{
-  "id":2,
-  "title":"God Spatially Above and Spatially Extended: The Rationality of Ibn Taymiyya’s Refutation of Faḫr al-Dīn al-Rāzī’s Ašʿarī Incorporealism",
-  "author":"John Hoover",
-  "pages":49,
-  "currentPage":49,
-
-  "started":"2026-07-20",
-  "finished":"2026-07-21",
-
-  "status":"completed"
-}
