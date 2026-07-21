@@ -231,3 +231,40 @@ window.editBook = editBook;
 window.deleteBook = deleteBook;
 
 clearBookForm();
+#booksPreview{
+
+    background:#0f172a;
+
+    padding:18px;
+
+    border-radius:12px;
+
+    margin-top:20px;
+
+    max-height:350px;
+
+    overflow:auto;
+
+    white-space:pre-wrap;
+
+    font-size:14px;
+
+    font-family:monospace;
+
+}
+
+.btn-row{
+
+    display:flex;
+
+    gap:10px;
+
+    margin-top:20px;
+
+}
+
+.btn-row button{
+
+    flex:1;
+
+}
