@@ -122,28 +122,30 @@ async function loadBooks(){
 
         }
 
-        const progressText = document.querySelector(".book-info small");
+       const title = document.querySelector(".book-info h3");
+if (title) {
+    title.textContent = currentBook.title;
+}
 
-        if(progressText){
+const author = document.querySelector(".book-info p");
+if (author) {
+    author.textContent = currentBook.author;
+}
 
-           const percent = Math.round(
-    currentBook.currentPage /
-    currentBook.pages *
-    100
-);
+const progressText = document.querySelector(".book-info small");
+const fill = document.querySelector(".progress-fill");
 
-progressText.textContent =
-`${currentBook.currentPage} / ${currentBook.pages} pages (${percent}%)`;
+if (progressText && fill) {
 
-            const fill = document.querySelector(".progress-fill");
+    const percent = Math.round(
+        (currentBook.currentPage / currentBook.pages) * 100
+    );
 
-            if(fill){
+    progressText.textContent =
+        `${currentBook.currentPage} / ${currentBook.pages} pages (${percent}%)`;
 
-                fill.style.width = percent + "%";
-
-            }
-
-        }
+    fill.style.width = percent + "%";
+}
 
     }
 
