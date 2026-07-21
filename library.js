@@ -1,8 +1,7 @@
-async function loadLibrary(){
+async function loadLibrary() {
 
-    const response = await fetch("data/books.json");
-
-    const books = await response.json();
+    const books = await (await fetch("data/books.json")).json();
+    const notes = await (await fetch("data/notes.json")).json();
 
     const grid = document.getElementById("libraryGrid");
 
@@ -11,8 +10,10 @@ async function loadLibrary(){
     books.forEach(book => {
 
         const percent = Math.round(
-            book.currentPage / book.pages * 100
+            (book.currentPage / book.pages) * 100
         );
+
+        const note = notes.find(n => n.book === book.id);
 
         const card = document.createElement("div");
 
@@ -21,65 +22,57 @@ async function loadLibrary(){
         card.innerHTML = `
 
         <div class="book-cover">
-
             📘
-
         </div>
 
         <span class="badge ${book.status}">
             ${
                 book.status === "completed"
-                ? "✓ Completed"
-                : book.status === "reading"
-                ? "📖 Reading"
-                : "📚 Planned"
+                    ? "✓ Completed"
+                    : book.status === "reading"
+                    ? "📖 Reading"
+                    : "📚 Planned"
             }
         </span>
 
-        <h2>
+        <h2>${book.title}</h2>
 
-            ${book.title}
-
-        </h2>
-
-        <p>
-
-            ${book.author}
-
-        </p>
+        <p>${book.author}</p>
 
         <div class="progress">
-
             <div class="progress-fill"
-            style="width:${percent}%">
-
+                 style="width:${percent}%">
             </div>
-
         </div>
 
         <small>
-
             ${book.currentPage} /
             ${book.pages}
             pages
-
             (${percent}%)
-
         </small>
 
         <br><br>
 
-        <button onclick="location.href='note.html?id=${book.id}'">
-
-            ${
-                book.status === "completed"
-                ? "View Notes"
+        ${
+            book.status === "completed"
+                ? (
+                    note
+                        ? `<button onclick="location.href='note.html?id=${note.id}'">
+                                📝 View Notes
+                           </button>`
+                        : `<button class="disabled-btn" disabled>
+                                No Notes
+                           </button>`
+                  )
                 : book.status === "reading"
-                ? "Continue Reading"
-                : "Start Reading"
-            }
-
-        </button>
+                ? `<button disabled>
+                        📖 Continue Reading
+                   </button>`
+                : `<button disabled>
+                        📚 Start Reading
+                   </button>`
+        }
 
         `;
 
