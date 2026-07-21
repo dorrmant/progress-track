@@ -79,35 +79,93 @@ const bookStatus = document.getElementById("bookStatus");
 
 const saveBook = document.getElementById("saveBook");
 const clearBook = document.getElementById("clearBook");
+const bookList = document.getElementById("bookList");
+
+function nextBookId() {
+    return books.length === 0
+        ? 1
+        : Math.max(...books.map(b => b.id)) + 1;
+}
 
 function clearBookForm() {
 
-    if (bookId) bookId.value = "";
-    if (bookTitle) bookTitle.value = "";
-    if (bookAuthor) bookAuthor.value = "";
-    if (bookPages) bookPages.value = "";
-    if (bookCurrentPage) bookCurrentPage.value = "";
-    if (bookStarted) bookStarted.value = "";
-    if (bookStatus) bookStatus.value = "reading";
-
     editingBook = null;
+
+    bookId.value = nextBookId();
+    bookTitle.value = "";
+    bookAuthor.value = "";
+    bookPages.value = "";
+    bookCurrentPage.value = "";
+    bookStarted.value = "";
+    bookStatus.value = "reading";
 
 }
 
-clearBook?.addEventListener("click", clearBookForm);
+function renderBooks() {
 
-saveBook?.addEventListener("click", () => {
+    if (books.length === 0) {
+
+        bookList.innerHTML = "<p>No books yet.</p>";
+        return;
+
+    }
+
+    bookList.innerHTML = "";
+
+    books.forEach(book => {
+
+        const card = document.createElement("div");
+
+        card.className = "book-card";
+
+        card.innerHTML = `
+            <div>
+
+                <h4>${book.title}</h4>
+
+                <p>${book.author}</p>
+
+                <small>
+                    ${book.currentPage}/${book.pages} pages
+                </small>
+
+                <br>
+
+                <small>${book.status}</small>
+
+            </div>
+
+            <div class="book-buttons">
+
+                <button onclick="editBook(${book.id})">
+                    ✏ Edit
+                </button>
+
+                <button onclick="deleteBook(${book.id})">
+                    🗑 Delete
+                </button>
+
+            </div>
+        `;
+
+        bookList.appendChild(card);
+
+    });
+
+}
+
+saveBook.onclick = () => {
 
     if (bookTitle.value.trim() === "") {
 
-        alert("Please enter a book title.");
+        alert("Please enter a title.");
         return;
 
     }
 
     const book = {
 
-        id: editingBook ?? books.length + 1,
+        id: editingBook ?? nextBookId(),
 
         title: bookTitle.value.trim(),
 
@@ -123,8 +181,53 @@ saveBook?.addEventListener("click", () => {
 
     };
 
-    console.log(book);
+    if (editingBook) {
 
-    alert("Book object created successfully.\n(Check the console)");
+        const index = books.findIndex(b => b.id === editingBook);
 
-});
+        books[index] = book;
+
+    } else {
+
+        books.push(book);
+
+    }
+
+    renderBooks();
+    clearBookForm();
+
+};
+
+clearBook.onclick = clearBookForm;
+
+function deleteBook(id) {
+
+    books = books.filter(book => book.id !== id);
+
+    renderBooks();
+    clearBookForm();
+
+}
+
+function editBook(id) {
+
+    const book = books.find(b => b.id === id);
+
+    if (!book) return;
+
+    editingBook = id;
+
+    bookId.value = book.id;
+    bookTitle.value = book.title;
+    bookAuthor.value = book.author;
+    bookPages.value = book.pages;
+    bookCurrentPage.value = book.currentPage;
+    bookStarted.value = book.started;
+    bookStatus.value = book.status;
+
+}
+
+window.editBook = editBook;
+window.deleteBook = deleteBook;
+
+clearBookForm();
