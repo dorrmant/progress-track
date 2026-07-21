@@ -116,6 +116,7 @@ function renderBooks() {
     bookList.innerHTML = "";
 
     books.forEach(book => {
+      
 
         const card = document.createElement("div");
 
@@ -154,6 +155,8 @@ function renderBooks() {
         bookList.appendChild(card);
 
     });
+    booksPreview.textContent =
+    JSON.stringify(books, null, 4);
 
 }
 
@@ -232,6 +235,36 @@ function editBook(id) {
 
 window.editBook = editBook;
 window.deleteBook = deleteBook;
+copyBooks.onclick = () => {
 
+    navigator.clipboard.writeText(
+        JSON.stringify(books, null, 4)
+    );
+
+    alert("books.json copied!");
+
+};
+
+downloadBooks.onclick = () => {
+
+    const blob = new Blob(
+
+        [JSON.stringify(books, null, 4)],
+
+        {type:"application/json"}
+
+    );
+
+    const a = document.createElement("a");
+
+    a.href = URL.createObjectURL(blob);
+
+    a.download = "books.json";
+
+    a.click();
+
+    URL.revokeObjectURL(a.href);
+
+};
 clearBookForm();
 
