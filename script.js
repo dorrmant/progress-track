@@ -1,10 +1,8 @@
 /* ==========================================
    THE STUDY LEDGER
-   Phase 1
 ========================================== */
 
 console.clear();
-
 console.log("The Study Ledger Loaded");
 
 /* ==========================================
@@ -24,10 +22,8 @@ function updateDate() {
 
     const element = document.querySelector(".date-box span");
 
-    if(element){
-
+    if (element) {
         element.textContent = today.toLocaleDateString("en-US", options);
-
     }
 
 }
@@ -35,16 +31,50 @@ function updateDate() {
 updateDate();
 
 /* ==========================================
+   Greeting
+========================================== */
+
+function greeting() {
+
+    const hour = new Date().getHours();
+
+    let text = "Welcome";
+
+    if (hour < 12) {
+
+        text = "Good Morning";
+
+    } else if (hour < 18) {
+
+        text = "Good Afternoon";
+
+    } else {
+
+        text = "Good Evening";
+
+    }
+
+    const hero = document.querySelector(".hero h2");
+
+    if (hero) {
+        hero.textContent = text;
+    }
+
+}
+
+greeting();
+
+/* ==========================================
    Load Profile
 ========================================== */
 
-async function loadProfile(){
+async function loadProfile() {
 
-    try{
+    try {
 
         const response = await fetch("data/profile.json");
 
-        if(!response.ok) return;
+        if (!response.ok) return;
 
         const profile = await response.json();
 
@@ -52,25 +82,21 @@ async function loadProfile(){
 
         const logo = document.querySelector(".logo h1");
 
-        if(logo){
-
+        if (logo) {
             logo.textContent = profile.siteTitle;
-
         }
 
         const subtitle = document.querySelector(".logo p");
 
-        if(subtitle){
-
+        if (subtitle) {
             subtitle.textContent = profile.subtitle;
-
         }
 
     }
 
-    catch(error){
+    catch (error) {
 
-        console.log(error);
+        console.error(error);
 
     }
 
@@ -79,32 +105,31 @@ async function loadProfile(){
 loadProfile();
 
 /* ==========================================
-   Load Books
+   Load Current Book
 ========================================== */
 
 async function loadBooks() {
 
-    console.log("loadBooks() started");
-
     try {
 
         const response = await fetch("data/books.json");
-        console.log("Response:", response.status);
+
+        if (!response.ok) return;
 
         const books = await response.json();
-        console.log("Books:", books);
 
         const currentBook = books.find(book => book.status === "reading");
-        console.log("Current book:", currentBook);
 
         const container = document.getElementById("currentBook");
-        console.log("Container:", container);
 
         if (!container) return;
 
         if (!currentBook) {
 
-            container.innerHTML = "<p>No current book.</p>";
+            container.innerHTML = `
+                <p>No book is currently being read.</p>
+            `;
+
             return;
 
         }
@@ -115,21 +140,33 @@ async function loadBooks() {
 
         container.innerHTML = `
             <div class="book-preview">
-                <div class="cover">📘</div>
+
+                <div class="cover">
+                    📘
+                </div>
+
                 <div class="book-info">
+
                     <h3>${currentBook.title}</h3>
+
                     <p>${currentBook.author}</p>
+
                     <div class="progress">
                         <div class="progress-fill" style="width:${percent}%"></div>
                     </div>
-                    <small>${currentBook.currentPage} / ${currentBook.pages} pages (${percent}%)</small>
+
+                    <small>
+                        ${currentBook.currentPage} / ${currentBook.pages} pages (${percent}%)
+                    </small>
+
                 </div>
+
             </div>
         `;
 
-        console.log("Book rendered.");
+    }
 
-    } catch (error) {
+    catch (error) {
 
         console.error(error);
 
@@ -138,72 +175,26 @@ async function loadBooks() {
 }
 
 loadBooks();
+
 /* ==========================================
    Fade Cards
 ========================================== */
 
 const cards = document.querySelectorAll(".card");
 
-cards.forEach((card,index)=>{
+cards.forEach((card, index) => {
 
-    card.style.opacity="0";
+    card.style.opacity = "0";
+    card.style.transform = "translateY(30px)";
 
-    card.style.transform="translateY(30px)";
+    setTimeout(() => {
 
-    setTimeout(()=>{
+        card.style.transition = ".6s";
+        card.style.opacity = "1";
+        card.style.transform = "translateY(0)";
 
-        card.style.transition=".6s";
-
-        card.style.opacity="1";
-
-        card.style.transform="translateY(0)";
-
-    },index*120);
+    }, index * 120);
 
 });
 
-/* ==========================================
-   Greeting
-========================================== */
-
-function greeting(){
-
-    const hour = new Date().getHours();
-
-    let text = "Welcome";
-
-    if(hour < 12){
-
-        text = "Good Morning";
-
-    }
-
-    else if(hour < 18){
-
-        text = "Good Afternoon";
-
-    }
-
-    else{
-
-        text = "Good Evening";
-
-    }
-
-    const hero = document.querySelector(".hero h2");
-
-    if(hero){
-
-        hero.textContent = text;
-
-    }
-
-}
-
-greeting();
-
-/* ==========================================
-   Placeholder
-========================================== */
-
-console.log("Ready for Phase 2");
+console.log("Ready");
