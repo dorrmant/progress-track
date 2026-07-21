@@ -222,6 +222,7 @@ async function loadNotes() {
         if (!response.ok) return;
 
         const notes = await response.json();
+       document.getElementById("notesCount").textContent = notes.length;
 
         const container = document.getElementById("recentNotes");
 
