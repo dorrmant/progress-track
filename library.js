@@ -69,7 +69,7 @@ async function loadLibrary(){
 
         <br><br>
 
-        <button onclick="location.href='book.html?id=${book.id}'">
+        <button onclick="location.href='note.html?id=${book.id}'">
 
             ${
                 book.status === "completed"
