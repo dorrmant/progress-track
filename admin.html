@@ -106,7 +106,7 @@
         </section>
 
 
-        <!-- Books -->
+       
 <!-- Books -->
 
 <section id="books" class="panel">
@@ -236,16 +236,113 @@
 
 </section>
 
+<!-- Notes -->
 
-        <!-- Notes -->
+<section id="notes" class="panel">
 
-        <section id="notes" class="panel">
+    <h2>📝 Notes Manager</h2>
 
-            <h2>Notes</h2>
+    <div class="book-layout">
 
-            <p>This section will generate and update <strong>notes.json</strong>.</p>
+        <!-- Left -->
 
-        </section>
+        <div class="editor-card">
+
+            <h3>Add / Edit Note</h3>
+
+            <label>ID</label>
+            <input
+                type="number"
+                id="noteId"
+                placeholder="Auto-generated"
+                readonly
+            >
+
+            <label>Book</label>
+            <select id="noteBook">
+
+                <option value="">
+                    Select a book...
+                </option>
+
+            </select>
+
+            <label>Title</label>
+            <input
+                type="text"
+                id="noteTitle"
+                placeholder="God Spatially Above and Spatially Extended"
+            >
+
+            <label>Date</label>
+            <input
+                type="date"
+                id="noteDate"
+            >
+
+            <label>Pages</label>
+            <input
+                type="text"
+                id="notePages"
+                placeholder="1–49"
+            >
+
+            <label>Content</label>
+
+            <textarea
+                id="noteContent"
+                rows="16"
+                placeholder="Write your research notes here..."
+            ></textarea>
+
+            <button id="saveNote">
+                💾 Save Note
+            </button>
+
+            <button
+                id="clearNote"
+                class="secondary-btn"
+            >
+                Clear Form
+            </button>
+
+        </div>
+
+        <!-- Right -->
+
+        <div class="editor-card">
+
+            <h3>Current Notes</h3>
+
+            <div id="noteList">
+
+                <p>No notes yet.</p>
+
+            </div>
+
+            <hr style="margin:25px 0; opacity:.2;">
+
+            <h3>notes.json</h3>
+
+            <pre id="notesPreview">[]</pre>
+
+            <div class="btn-row">
+
+                <button id="copyNotes">
+                    📋 Copy JSON
+                </button>
+
+                <button id="downloadNotes">
+                    ⬇ Download JSON
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
 
 
         <!-- Daily Log -->
