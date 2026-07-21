@@ -175,7 +175,38 @@ async function loadBooks() {
 }
 
 loadBooks();
+/* ==========================================
+   Statistics
+========================================== */
 
+async function loadStatistics() {
+
+    try {
+
+        // Books
+        const booksResponse = await fetch("data/books.json");
+        const books = await booksResponse.json();
+
+        document.getElementById("booksCount").textContent = books.length;
+
+        // Pages Read
+        const totalPages = books.reduce((sum, book) => {
+            return sum + (book.currentPage || 0);
+        }, 0);
+
+        document.getElementById("pagesRead").textContent = totalPages;
+
+    }
+
+    catch (error) {
+
+        console.error(error);
+
+    }
+
+}
+
+loadStatistics();
 /* ==========================================
    Fade Cards
 ========================================== */
