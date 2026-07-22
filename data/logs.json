@@ -4,7 +4,7 @@
     "status": "excellent",
     "hours": 7.5,
     "pages": 0,
-    "books": [
+    "topics": [
       "Made the site today"
     ],
     "notes": 0
@@ -14,7 +14,7 @@
     "status": "good",
     "hours": 2,
     "pages": 23,
-    "books": [
+    "topics": [
       "Defining without Essences: Ibn Taymiyya’s Critique of Aristotelian Logic"
     ],
     "notes": 1
