@@ -4,7 +4,19 @@
     "status": "excellent",
     "hours": 7.5,
     "pages": 0,
-    "books": ["Made the site today"],
+    "books": [
+      "Made the site today"
+    ],
     "notes": 0
+  },
+  {
+    "date": "2026-07-22",
+    "status": "good",
+    "hours": 2,
+    "pages": 23,
+    "books": [
+      "Defining without Essences: Ibn Taymiyya’s Critique of Aristotelian Logic"
+    ],
+    "notes": 1
   }
 ]
