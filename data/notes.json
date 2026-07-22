@@ -19,86 +19,103 @@
   "date": "2025-02-16",
   "pages": "735",
   "title": "Introduction to Propositional Logic and Discrete Mathematics",
-  "content" : "# Propositional Logic
+  "content" : "# Introduction to Propositional Logic & Discrete Mathematics
 
-## Purpose
-Propositional logic studies truth-functional relationships between propositions using logical connectives.
+## Propositional Variables & Logical Connectives
 
----
+A **propositional variable** represents a proposition and is usually denoted by letters such as **p**, **q**, **r**, etc.
 
-## Propositional Variables
+Logical connectives combine atomic propositions into compound propositions.
 
-- Variables represent propositions.
-- Usually denoted by p, q, r, ...
-- Atomic propositions are indivisible statements.
-- Compound propositions are formed using logical connectives.
-
----
-
-## Logical Connectives
-
-| Symbol | Name | Meaning |
-| :---: | :--- | :--- |
-| ¬ | Negation | Not |
-| ∧ | Conjunction | And |
-| ∨ | Disjunction | Inclusive OR |
-| ⊕ | Exclusive OR | Either...or...but not both |
-| → | Implication | If...then |
-| ↔ | Biconditional | If and only if |
+| Symbol | Name | Meaning | Example |
+|:------:|------|---------|---------|
+| ¬ | Negation | Not | ¬A |
+| ∧ | Conjunction | And | A ∧ B |
+| ∨ | Disjunction | Inclusive OR | A ∨ B |
+| ⊕ | Exclusive OR | Either...or (not both) | A ⊕ B |
+| → | Implication | If...then | A → B |
+| ↔ | Biconditional | If and only if | A ↔ B |
 
 ---
 
-## Negation (¬p)
+# 1. Negation (¬)
 
-Definition:
-- Reverses the truth value of p.
+If **p** is a proposition, its negation is written as **¬p**.
 
-Truth Rule:
+> "It is not the case that p."
+
+### Truth Table
 
 | p | ¬p |
 |:-:|:-:|
 | T | F |
 | F | T |
 
+### Examples
+
+**p:** It is raining today.
+
+**¬p:** It is not raining today.
+
 ---
 
-## Conjunction (p ∧ q)
+# 2. Conjunction (∧)
 
-Definition:
-- True only when both propositions are true.
+The conjunction **p ∧ q** is true only when **both** propositions are true.
 
-Truth Rule:
+### Truth Table
 
-| p | q | p∧q |
+| p | q | p ∧ q |
 |:-:|:-:|:-:|
 | T | T | T |
-| otherwise | | F |
-
----
-
-## Disjunction (p ∨ q)
-
-Definition:
-- Inclusive OR.
-- False only when both are false.
-
-Truth Rule:
-
-| p | q | p∨q |
-|:-:|:-:|:-:|
+| T | F | F |
+| F | T | F |
 | F | F | F |
-| otherwise | | T |
+
+### Example
+
+p = PC has more than 16 GB RAM
+
+q = Processor is faster than 1 GHz
+
+**p ∧ q**
+
+> The PC has more than 16 GB RAM **and** the processor is faster than 1 GHz.
 
 ---
 
-## Exclusive OR (p ⊕ q)
+# 3. Disjunction (∨)
 
-Definition:
-- Exactly one proposition must be true.
+The disjunction **p ∨ q** is true whenever **at least one** proposition is true.
 
-Truth Rule:
+### Truth Table
 
-| p | q | p⊕q |
+| p | q | p ∨ q |
+|:-:|:-:|:-:|
+| T | T | T |
+| T | F | T |
+| F | T | T |
+| F | F | F |
+
+### Example
+
+p = Today is Friday
+
+q = It is raining
+
+**p ∨ q**
+
+> Today is Friday **or** it is raining.
+
+---
+
+# 4. Exclusive OR (⊕)
+
+Exclusive OR means **exactly one** proposition is true.
+
+### Truth Table
+
+| p | q | p ⊕ q |
 |:-:|:-:|:-:|
 | T | T | F |
 | T | F | T |
@@ -107,99 +124,215 @@ Truth Rule:
 
 ---
 
-## Implication (p → q)
+# 5. Implication (→)
 
-Structure:
-- Antecedent = p
-- Consequent = q
+An implication has the form
 
-Key Rule:
-- False only when p is true and q is false.
+**p → q**
 
-Equivalent readings:
+where
 
-- If p then q
+- **p** = antecedent
+- **q** = consequent
+
+### Truth Table
+
+| p | q | p → q |
+|:-:|:-:|:-:|
+| T | T | T |
+| T | F | F |
+| F | T | T |
+| F | F | T |
+
+### Key Rule
+
+An implication is **false only when**
+
+- p = True
+- q = False
+
+Otherwise, it is true.
+
+### Equivalent Readings
+
+- If p, then q
 - p implies q
 - p is sufficient for q
+- q if p
+- p only if q
 - q is necessary for p
 
 ---
 
-## Biconditional (p ↔ q)
+# 6. Biconditional (↔)
 
-Definition:
-- Both propositions have identical truth values.
+The biconditional
 
-Equivalent to:
+**p ↔ q**
 
+means **p if and only if q**.
+
+Equivalent to
+
+```
 (p → q) ∧ (q → p)
+```
+
+### Truth Table
+
+| p | q | p ↔ q |
+|:-:|:-:|:-:|
+| T | T | T |
+| T | F | F |
+| F | T | F |
+| F | F | T |
+
+Equivalent expressions
+
+- p iff q
+- p is necessary and sufficient for q
+- If p then q, and conversely
 
 ---
 
-## Converse / Inverse / Contrapositive
+# Practice Truth Table
 
-Given:
+Evaluate
 
+```
+(p ∨ ¬q) → (p ∧ q)
+```
+
+| p | q | ¬q | p∨¬q | p∧q | Result |
+|:-:|:-:|:-:|:-:|:-:|:-:|
+| T | T | F | T | T | T |
+| T | F | T | T | F | F |
+| F | T | F | F | F | T |
+| F | F | T | T | F | F |
+
+---
+
+# Converse, Inverse & Contrapositive
+
+Given
+
+```
 p → q
+```
 
-| Form | Expression |
+| Name | Expression |
 |------|------------|
 | Converse | q → p |
 | Inverse | ¬p → ¬q |
 | Contrapositive | ¬q → ¬p |
 
-Important:
+### Important
 
-- Contrapositive is logically equivalent to the original implication.
-- Converse and inverse are equivalent to each other.
+The **contrapositive** is logically equivalent to the original implication.
+
+The **converse** and **inverse** are equivalent to each other but **not** to the original implication.
 
 ---
 
-## Translating English
+# Translating English
 
-Examples
+### Example 1
 
-"You can access the internet if you are a CS major and not a freshman."
+Variables
 
+- p = Internet access
+- q = CS major
+- r = Freshman
+
+Expression
+
+```
 (q ∧ ¬r) → p
+```
 
 ---
 
-## Logical Reasoning
+### Example 2
 
-Given:
+Variables
+
+- p = Automated file cannot be sent
+- q = File is full
+
+Expression
+
+```
+q → p
+```
+
+---
+
+### Example 3
+
+Variables
+
+- p = Diagnostic message stored
+- q = Message retransmitted
+
+Expression
+
+```
+¬p → q
+```
+
+---
+
+# Logical Reasoning Example
+
+Premises
 
 1. p ∨ q
 2. ¬p
 
-Infer:
+Therefore
 
-- p = F
-- q = T
-- p → q = T
+- p = False
+- q = True
+- p → q = True
+
+| p | q | p∨q | ¬p | p→q |
+|:-:|:-:|:-:|:-:|:-:|
+| F | T | T | T | T |
 
 ---
 
-## Knights and Knaves
+# Knights & Knaves Puzzle
 
 Variables
 
-p = A is a knight
-
-q = B is a knight
+- p = A is a knight
+- q = B is a knight
 
 Statements
 
 A:
+
+```
 p ↔ q
+```
 
 B:
 
+```
 q ↔ ((p ∧ ¬q) ∨ (¬p ∧ q))
+```
 
 ---
 
-## Types of Compound Propositions
+# Types of Compound Propositions
+
+## Atomic Proposition
+
+A simple proposition.
+
+## Compound Proposition
+
+A proposition composed of multiple atomic propositions.
 
 ### Tautology
 
@@ -211,7 +344,7 @@ Always false.
 
 ### Contingency
 
-Truth depends on the truth values of its components."
+Sometimes true and sometimes false depending on the truth values of its components."
 }
   
   
