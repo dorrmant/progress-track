@@ -5,7 +5,9 @@
     "hours": 7.5,
     "pages": 0,
     "topics": [
-      "Made the site today"
+      {
+        "title": "Made the site today"
+      }
     ],
     "notes": 0
   },
@@ -15,8 +17,12 @@
     "hours": 3,
     "pages": 34,
     "topics": [
-      "Defining without Essences: Ibn Taymiyya’s Critique of Aristotelian Logic",
-      "Discrete Mathematics"
+      {
+        "title": "Defining without Essences: Ibn Taymiyya’s Critique of Aristotelian Logic"
+      },
+      {
+        "title": "Discrete Mathematics"
+      }
     ],
     "notes": 1
   }
