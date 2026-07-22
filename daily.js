@@ -241,10 +241,10 @@ function showTooltip(event,date){
         tipPages.textContent=
             "Pages: "+log.pages;
 
-        if(log.books.length){
+        if(log.topics.length){
 
             tipTopics.innerHTML=
-                "<strong>Books</strong><br>"+log.topics.join("<br>");
+                "<strong>Topics</strong><br>"+log.topics.join("<br>");
 
         }
 
