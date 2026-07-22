@@ -586,11 +586,11 @@ main{
 
 }
 
-.note p{
+.note p{  margin-bottom:4px;
 
-    margin-bottom:4px;
+    color:var(--text);
 
-    color:#374151;
+    font-weight:500;
 
 }
 
