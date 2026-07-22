@@ -368,10 +368,10 @@ saveNote.onclick = () => {
         return;
     }
 
-    if(noteBook.value===""){
-        alert("Select a book.");
-        return;
-    }
+if(noteBook.value.trim()===""){
+    alert("Enter Book ID.");
+    return;
+}
 
     const note = {
 
