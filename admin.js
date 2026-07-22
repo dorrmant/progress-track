@@ -275,9 +275,10 @@ clearBookForm();
 populateBookDropdown();
 clearNoteForm();
 
-/* ==========================================
+//* ==========================================
    Notes Manager
 ========================================== */
+
 let notes = [];
 let editingNote = null;
 
@@ -295,6 +296,7 @@ const noteList = document.getElementById("noteList");
 const notesPreview = document.getElementById("notesPreview");
 const copyNotes = document.getElementById("copyNotes");
 const downloadNotes = document.getElementById("downloadNotes");
+
 function nextNoteId() {
     return notes.length === 0
         ? 1
@@ -302,22 +304,14 @@ function nextNoteId() {
 }
 
 function populateBookDropdown() {
-
-    noteBook.innerHTML = `
-        <option value="">Select a book...</option>
-    `;
+    noteBook.innerHTML = `<option value="">Select a book...</option>`;
 
     books.forEach(book => {
-
         const option = document.createElement("option");
-
         option.value = book.id;
         option.textContent = book.title;
-
         noteBook.appendChild(option);
-
     });
-
 }
 
 function clearNoteForm() {
@@ -327,8 +321,153 @@ function clearNoteForm() {
     noteId.value = nextNoteId();
     noteBook.value = "";
     noteTitle.value = "";
-    noteDate.value = "";
+    noteDate.value = new Date().toISOString().slice(0,10);
     notePages.value = "";
     noteContent.value = "";
+}
+
+function renderNotes() {
+
+    if(notes.length===0){
+
+        noteList.innerHTML="<p>No notes yet.</p>";
+        notesPreview.textContent="[]";
+        return;
+
+    }
+
+    noteList.innerHTML="";
+
+    notes.forEach(note=>{
+
+        const card=document.createElement("div");
+
+        card.className="book-card";
+
+        card.innerHTML=`
+            <div>
+                <h4>${note.title}</h4>
+                <p>${note.date}</p>
+                <small>${note.pages}</small>
+            </div>
+
+            <div class="book-buttons">
+                <button onclick="editNote(${note.id})">✏ Edit</button>
+                <button onclick="deleteNote(${note.id})">🗑 Delete</button>
+            </div>
+        `;
+
+        noteList.appendChild(card);
+
+    });
+
+    notesPreview.textContent =
+        JSON.stringify(notes,null,4);
 
 }
+
+saveNote.onclick = () => {
+
+    if(noteTitle.value.trim()===""){
+        alert("Enter a title.");
+        return;
+    }
+
+    if(noteBook.value===""){
+        alert("Select a book.");
+        return;
+    }
+
+    const note = {
+
+        id: editingNote ?? nextNoteId(),
+
+        book: Number(noteBook.value),
+
+        date: noteDate.value,
+
+        pages: notePages.value.trim(),
+
+        title: noteTitle.value.trim(),
+
+        content: noteContent.value
+
+    };
+
+    if(editingNote){
+
+        const i=notes.findIndex(n=>n.id===editingNote);
+        notes[i]=note;
+
+    }else{
+
+        notes.push(note);
+
+    }
+
+    renderNotes();
+    clearNoteForm();
+
+};
+
+function editNote(id){
+
+    const note=notes.find(n=>n.id===id);
+
+    if(!note) return;
+
+    editingNote=id;
+
+    noteId.value=note.id;
+    noteBook.value=note.book;
+    noteDate.value=note.date;
+    notePages.value=note.pages;
+    noteTitle.value=note.title;
+    noteContent.value=note.content;
+
+}
+
+function deleteNote(id){
+
+    notes=notes.filter(n=>n.id!==id);
+
+    renderNotes();
+    clearNoteForm();
+
+}
+
+window.editNote=editNote;
+window.deleteNote=deleteNote;
+
+clearNote.onclick=clearNoteForm;
+
+copyNotes.onclick=()=>{
+
+    navigator.clipboard.writeText(
+        JSON.stringify(notes,null,4)
+    );
+
+    alert("notes.json copied.");
+
+};
+
+downloadNotes.onclick=()=>{
+
+    const blob=new Blob(
+        [JSON.stringify(notes,null,4)],
+        {type:"application/json"}
+    );
+
+    const a=document.createElement("a");
+
+    a.href=URL.createObjectURL(blob);
+    a.download="notes.json";
+    a.click();
+
+    URL.revokeObjectURL(a.href);
+
+};
+
+populateBookDropdown();
+clearNoteForm();
+renderNotes();
