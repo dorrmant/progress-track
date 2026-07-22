@@ -200,10 +200,10 @@ saveBook.onclick = () => {
 
     }
 
-    renderBooks();
-   populateBookDropdown();
+ renderBooks();
+populateBookDropdown();
+clearBookForm();
 
-    clearBookForm();
 
 };
 
@@ -213,10 +213,10 @@ function deleteBook(id) {
 
     books = books.filter(book => book.id !== id);
 
-    renderBooks();
-   populateBookDropdown();
+   renderBooks();
+populateBookDropdown();
+clearBookForm();
 
-    clearBookForm();
 
 }
 
@@ -271,13 +271,8 @@ downloadBooks.onclick = () => {
     URL.revokeObjectURL(a.href);
 
 };
-clearBookForm();
-populateBookDropdown();
-clearNoteForm();
 
-//* ==========================================
-   Notes Manager
-========================================== */
+/*notemanager*/
 
 let notes = [];
 let editingNote = null;
@@ -429,10 +424,10 @@ function editNote(id){
 
 function deleteNote(id){
 
-    notes=notes.filter(n=>n.id!==id);
+  notes = notes.filter(n => n.id !== id);
 
-    renderNotes();
-    clearNoteForm();
+clearNoteForm();
+renderNotes();
 
 }
 
@@ -468,6 +463,11 @@ downloadNotes.onclick=()=>{
 
 };
 
-populateBookDropdown();
+// Initialize
+clearBookForm();
 clearNoteForm();
+
+populateBookDropdown();
+
+renderBooks();
 renderNotes();
