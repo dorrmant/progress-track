@@ -16,7 +16,7 @@ const tipDate = document.getElementById("tipDate");
 const tipStatus = document.getElementById("tipStatus");
 const tipHours = document.getElementById("tipHours");
 const tipPages = document.getElementById("tipPages");
-const tipBooks = document.getElementById("tipBooks");
+const tipTopics = document.getElementById("tipTopics");
 const tipNotes = document.getElementById("tipNotes");
 
 // ---------- Variables ----------
@@ -218,7 +218,7 @@ function showTooltip(event,date){
 
     const log=logs.find(l=>l.date===date);
 
-    tipBooks.innerHTML="";
+    tipTopics.innerHTML="";
 
     if(!log){
 
@@ -243,7 +243,7 @@ function showTooltip(event,date){
 
         if(log.books.length){
 
-            tipBooks.innerHTML=
+            tipTopics.innerHTML=
                 "<strong>Books</strong><br>"+log.topics.join("<br>");
 
         }
