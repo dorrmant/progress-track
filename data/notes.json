@@ -19,269 +19,199 @@
   "date": "2025-02-16",
   "pages": "735",
   "title": "Introduction to Propositional Logic and Discrete Mathematics",
-  "content" : "## Propositional Variables & Logical Connectives
+  "content" : "# Propositional Logic
 
-We use letters to denote Propositional Variables. A variable represents a proposition.
-Conventional letters are used. Systematically developed by Aristotle.
-
-Logical Connectives are symbols used to build compound propositions from atomic ones (Atomic Facts).
-
-| Symbol | Words | Terms | Example |
-| :---: | :---: | :---: | :---: |
-| ∧ | And | Conjunction | A ∧ B |
-| ∨ | OR | Disjunction | A ∨ B |
-| → | If... then / implies | Implication | A → B |
-| ↔ | If & only if | Bi-conditional | A ↔ B |
-| ¬ | Not | Negation | ¬A |
+## Purpose
+Propositional logic studies truth-functional relationships between propositions using logical connectives.
 
 ---
 
-## 1. Negation
+## Propositional Variables
 
-If p is a proposition, then the negation is simply not p, which can be denoted as ¬p ("It is not the case that p").
+- Variables represent propositions.
+- Usually denoted by p, q, r, ...
+- Atomic propositions are indivisible statements.
+- Compound propositions are formed using logical connectives.
+
+---
+
+## Logical Connectives
+
+| Symbol | Name | Meaning |
+| :---: | :--- | :--- |
+| ¬ | Negation | Not |
+| ∧ | Conjunction | And |
+| ∨ | Disjunction | Inclusive OR |
+| ⊕ | Exclusive OR | Either...or...but not both |
+| → | Implication | If...then |
+| ↔ | Biconditional | If and only if |
+
+---
+
+## Negation (¬p)
+
+Definition:
+- Reverses the truth value of p.
+
+Truth Rule:
 
 | p | ¬p |
-| :-: | :-: |
+|:-:|:-:|
 | T | F |
 | F | T |
 
-* Example 1:  
-  p = It is raining today  
-  ¬p = It is not the case that it is raining today.
-
-* Example 2:  
-  p = Michael's PC runs Linux.  
-  ¬p = It is not the case that Michael's PC runs Linux.
-
 ---
 
-## 2. Conjunction
+## Conjunction (p ∧ q)
 
-For any two propositions p and q, their Conjunction is denoted by p ∧ q. 
-The conjunction p ∧ q is true when both p and q are true; otherwise false.
+Definition:
+- True only when both propositions are true.
 
-| p | q | p ∧ q |
-| :-: | :-: | :-: |
+Truth Rule:
+
+| p | q | p∧q |
+|:-:|:-:|:-:|
 | T | T | T |
-| T | F | F |
-| F | T | F |
-| F | F | F |
-
-* Example:  
-  p = Rebecca's PC has more than 16GB RAM.  
-  q = Her processor is faster than 1 GHz.  
-  p ∧ q = Her PC has more than 16GB RAM and runs faster than 1 GHz.
+| otherwise | | F |
 
 ---
 
-## 3. Disjunction
+## Disjunction (p ∨ q)
 
-For any propositions p and q, their disjunction is denoted by p ∨ q. 
-p ∨ q is true when either of them is true.
+Definition:
+- Inclusive OR.
+- False only when both are false.
 
-| p | q | p ∨ q |
-| :-: | :-: | :-: |
-| T | T | T |
-| T | F | T |
-| F | T | T |
+Truth Rule:
+
+| p | q | p∨q |
+|:-:|:-:|:-:|
 | F | F | F |
-
-* Example:  
-  p = Today is Friday.  
-  q = It is raining today.  
-  p ∨ q = Today is Friday or it is raining today.
+| otherwise | | T |
 
 ---
 
-## 4. Exclusive OR (XOR)
+## Exclusive OR (p ⊕ q)
 
-For any p and q, their exclusive OR is denoted as p ⊕ q, which means either p or q, but not both true at the same time.
+Definition:
+- Exactly one proposition must be true.
 
-| p | q | p ⊕ q |
-| :-: | :-: | :-: |
+Truth Rule:
+
+| p | q | p⊕q |
+|:-:|:-:|:-:|
 | T | T | F |
 | T | F | T |
 | F | T | T |
 | F | F | F |
 
-* Example:  
-  p = It is raining today.  
-  q = Today is Friday.  
-  p ⊕ q = Either today is Friday or it is raining today, but not both.
+---
+
+## Implication (p → q)
+
+Structure:
+- Antecedent = p
+- Consequent = q
+
+Key Rule:
+- False only when p is true and q is false.
+
+Equivalent readings:
+
+- If p then q
+- p implies q
+- p is sufficient for q
+- q is necessary for p
 
 ---
 
-## 5. Implication (If-Then)
+## Biconditional (p ↔ q)
 
-For any two cases p & q, "If p then q" is called implication.  
-p → q (p implies q):
-* p → antecedent
-* q → consequent
+Definition:
+- Both propositions have identical truth values.
 
-| p | q | p → q |
-| :-: | :-: | :-: |
-| T | T | T |
-| T | F | F |
-| F | T | T |
-| F | F | T |
+Equivalent to:
 
-Key Rule: The implication is only false if p is T and q is F; otherwise True.
-
-* When the value of p is T, the conclusion equals implication.
-* When value of p is F, the implication is by default true.
-* When p is false, there is no way of knowing whether or not the implication is false, since p did not happen.
-
-### Common Ways to Express Implication (p → q):
-* If p, then q
-* p is sufficient for q
-* q if p
-* p only if q
-* q when p / q is a necessary condition for p
-
-* Example:  
-  p = M learns math  
-  q = M will get job  
-  p → q = If M learns math, M will get job. (Can be said in many ways)
+(p → q) ∧ (q → p)
 
 ---
 
-## 6. Bi-conditional
+## Converse / Inverse / Contrapositive
 
-For any p and q, "p if and only if q" is called bi-conditional.  
-p ↔ q has the same truth value as (p → q) ∧ (q → p).
+Given:
 
-| p | q | p ↔ q |
-| :-: | :-: | :-: |
-| T | T | T |
-| T | F | F |
-| F | T | F |
-| F | F | T |
+p → q
 
-### Common ways to express p ↔ q:
-* p is necessary and sufficient for q
-* If p then q, and conversely
-* p iff q
+| Form | Expression |
+|------|------------|
+| Converse | q → p |
+| Inverse | ¬p → ¬q |
+| Contrapositive | ¬q → ¬p |
 
-* Example:  
-  p = Today is Friday.  
-  q = It is raining today.  
-  p ↔ q = It is raining today if and only if it is Friday today.
+Important:
+
+- Contrapositive is logically equivalent to the original implication.
+- Converse and inverse are equivalent to each other.
 
 ---
 
-## Practice Truth Tables & Examples
+## Translating English
 
-### Table: (p ∨ ¬q) → (p ∧ q)
+Examples
 
-| p | q | ¬q | p ∨ ¬q | p ∧ q | (p ∨ ¬q) → (p ∧ q) |
-| :-: | :-: | :-: | :-: | :-: | :-: |
-| T | T | F | T | T | T |
-| T | F | T | T | F | F |
-| F | T | F | F | F | T |
-| F | F | T | T | F | F |
+"You can access the internet if you are a CS major and not a freshman."
+
+(q ∧ ¬r) → p
 
 ---
 
-## Converse, Contrapositive & Inverse
+## Logical Reasoning
 
-Given an implication p → q:
-* Converse: q → p
-* Contrapositive: ¬q → ¬p
-* Inverse: ¬p → ¬q
+Given:
 
-### Truth Table Comparison:
-
-| p | q | Implication (p → q) | Converse (q → p) | Inverse (¬p → ¬q) | Contrapositive (¬q → ¬p) |
-| :-: | :-: | :-: | :-: | :-: | :-: |
-| T | T | T | T | T | T |
-| T | F | F | T | T | F |
-| F | T | T | F | F | T |
-| F | F | T | T | T | T |
-
-### Example:
-* p = It is raining.
-* q = Home team wins.
-* Implication (p → q): If it is raining, then home team wins.
-* Converse (q → p): If home team wins, then it is raining.
-* Inverse (¬p → ¬q): If it is not raining, then home team doesn't win.
-* Contrapositive (¬q → ¬p): If home team does not win, then it didn't rain.
-
----
-
-## Ch. 1.2: Translating English to Propositional Expressions
-
-### Example 1:
-* p = You can access internet
-* q = CS major
-* r = Freshmen
-
-Expression: (q ∧ ¬r) → p
-
-### Example 2:
-* p = The automated file cannot be sent
-* q = The file is full
-
-Expression: q → p
-
-### Example 3:
-* p = Diagnostic message is stored in buffer
-* q = Message is retransmitted
-
-If diagnostic message is not stored in buffer (¬p), then message is retransmitted (q).  
-Expression: ¬p → q
-
----
-
-## Solving Logic Problems
-
-### Problem:
-Given premises:
 1. p ∨ q
 2. ¬p
 
-Find the truth values for p, q, and p → q.
+Infer:
 
-Solution:
-* From premise 2, ¬p is True ∴ p = False (F).
-* From premise 1, p ∨ q ⇒ F ∨ q = q. Since p ∨ q is true, q = True (T).
-* For implication p → q ⇒ F → T = True (T).
-  (An implication with a false antecedent is always true).
-
-| p | q | p ∨ q | ¬p | p → q |
-| :-: | :-: | :-: | :-: | :-: |
-| F | T | T | T | T |
+- p = F
+- q = T
+- p → q = T
 
 ---
 
-## Knights and Knaves Puzzle
+## Knights and Knaves
 
-An island where Knights always tell the truth and Knaves always lie.  
-We meet A and B.
-* A says: "B is a knight."
-* B says: "The two of us are opposite types."
+Variables
 
-Variables:
-* p = A is a knight
-* q = B is a knight
-* ¬p = A is a knave
-* ¬q = B is a knave
+p = A is a knight
 
-Analysis:
-1. A's statement translates to: p ↔ q (Since A tells the truth iff A is a knight).
-2. B's statement translates to: q ↔ ((p ∧ ¬q) ∨ (¬p ∧ q)).
+q = B is a knight
+
+Statements
+
+A:
+p ↔ q
+
+B:
+
+q ↔ ((p ∧ ¬q) ∨ (¬p ∧ q))
 
 ---
 
-## Ch. 1.3: Types of Propositions
+## Types of Compound Propositions
 
-* Atomic Proposition: Simple proposition.
-* Compound Proposition: Made of multiple atomic propositions.
+### Tautology
 
-There are 3 main types of compound propositions:
+Always true.
 
-1. Tautology: A compound proposition which is always true, regardless of the truth values of its components.
-2. Contradiction: A compound proposition which is always false, no matter what their truth values are.
-3. Contingency: A compound proposition which is sometimes true and sometimes false, depending upon component values.",
+### Contradiction
+
+Always false.
+
+### Contingency
+
+Truth depends on the truth values of its components.",
 }
   
   
