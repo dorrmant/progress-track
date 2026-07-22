@@ -55,7 +55,16 @@
     "started": "2026-01-02",
     "finished": "2026-01-02",
     "status": "completed"
-  }
-  
+  }, 
+    {
+        "id": 8,
+        "title": "Introduction to Propositional Logic & Discrete Mathematics",
+        "author": "Hasnain Ahmed",
+        "pages": 437,
+        "currentPage": 68,
+        "started": "",
+        "status": "reading"
+    }
 ]
+
 
