@@ -244,7 +244,7 @@ function showTooltip(event,date){
         if(log.books.length){
 
             tipBooks.innerHTML=
-                "<strong>Books</strong><br>"+log.books.join("<br>");
+                "<strong>Books</strong><br>"+log.topics.join("<br>");
 
         }
 
