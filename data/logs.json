@@ -19,5 +19,14 @@
      "                ", "Discrete Mathematics"
     ],
     "notes": 1
-  }
+  },{
+    "date": "2026-07-25",
+    "status": "good",
+    "hours": 2,
+    "pages": 0,
+    "topics": [
+      "Introduction to Python"
+    ],
+    "notes": 0
+  },
 ]
