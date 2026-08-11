@@ -28,5 +28,33 @@
       "Introduction to Python"
     ],
     "notes": 0
+  },{
+    "date": "2026-07-27",
+    "status": "good",
+    "hours": 3,
+    "pages": 0,
+    "topics": [
+      "Categories J.L Ackrill"
+    ],
+    "notes": 0
+  },{
+    "date": "2026-07-30",
+    "status": "excellent",
+    "hours": 5,
+    "pages": 0,
+    "topics": [
+      "Set & Its Operation"
+    ],
+    "notes": 0
+  },
+  {
+    "date": "2026-08-01",
+    "status": "good",
+    "hours": 2,
+    "pages": 0,
+    "topics": [
+      "Perpetual Creativity in the Perfection of God"
+    ],
+    "notes": 0
   }
 ]
