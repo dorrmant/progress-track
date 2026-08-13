@@ -1,64 +1,66 @@
 [
-  {
-    "date": "2026-07-21",
-    "status": "excellent",
-    "hours": 7.5,
-    "pages": 0,
-    "topics": [
-      "Made the site today"
-    ],
-    "notes": 0
-  },
-  {
-    "date": "2026-07-22",
-    "status": "good",
-    "hours": 3,
-    "pages": 34,
-    "topics": [
-      "Defining without Essences: Ibn Taymiyya’s Critique of Aristotelian Logic",
-     "                ", "Discrete Mathematics"
-    ],
-    "notes": 1
-  },{
-    "date": "2026-07-25",
-    "status": "good",
-    "hours": 2,
-    "pages": 0,
-    "topics": [
-      "Introduction to Python"
-    ],
-    "notes": 0
-  },{
-    "date": "2026-07-27",
-    "status": "good",
-    "hours": 3,
-    "pages": 0,
-    "topics": [
-      "Categories J.L Ackrill"
-    ],
-    "notes": 0
-  },{
-    "date": "2026-07-30",
-    "status": "excellent",
-    "hours": 5,
-    "pages": 0,
-    "topics": [
-      "Set & Its Operation"
-    ],
-    "notes": 0
-  },
-  {
-    "date": "2026-08-01",
-    "status": "good",
-    "hours": 2,
-    "pages": 0,
-    "topics": [
-      "Perpetual Creativity in the Perfection of God"
-    ],
-    "notes": 0
-  }[
-    ,{
-        
+    {
+        "date": "2026-07-21",
+        "status": "excellent",
+        "hours": 7.5,
+        "pages": 0,
+        "topics": [
+            "Made the site today"
+        ],
+        "notes": 0
+    },
+    {
+        "date": "2026-07-22",
+        "status": "good",
+        "hours": 3,
+        "pages": 34,
+        "topics": [
+            "Defining without Essences: Ibn Taymiyya’s Critique of Aristotelian Logic",
+            "Discrete Mathematics"
+        ],
+        "notes": 1
+    },
+    {
+        "date": "2026-07-25",
+        "status": "good",
+        "hours": 2,
+        "pages": 0,
+        "topics": [
+            "Introduction to Python"
+        ],
+        "notes": 0
+    },
+    {
+        "date": "2026-07-27",
+        "status": "good",
+        "hours": 3,
+        "pages": 0,
+        "topics": [
+            "Categories J.L Ackrill"
+        ],
+        "notes": 0
+    },
+    {
+        "date": "2026-07-30",
+        "status": "excellent",
+        "hours": 5,
+        "pages": 0,
+        "topics": [
+            "Set & Its Operation"
+        ],
+        "notes": 0
+    },
+    {
+        "date": "2026-08-01",
+        "status": "good",
+        "hours": 2,
+        "pages": 0,
+        "topics": [
+            "Perpetual Creativity in the Perfection of God"
+        ],
+        "notes": 0
+    },
+    {
         "date": "2026-08-10",
         "status": "good",
         "hours": 2,
@@ -67,8 +69,8 @@
             "Categories J.L Ackrill"
         ],
         "notes": 0
-    },{
-        
+    },
+    {
         "date": "2026-08-11",
         "status": "good",
         "hours": 2,
@@ -77,16 +79,16 @@
             "Categories J.L Ackrill"
         ],
         "notes": 0
-    },{
-        
+    },
+    {
         "date": "2026-08-12",
         "status": "excellent",
         "hours": 4,
         "pages": 0,
         "topics": [
-            "Categories J.L Ackrill"," ", "Functions and Its Operations"
+            "Categories J.L Ackrill",
+            "Functions and Its Operations"
         ],
         "notes": 0
     }
-]
 ]
