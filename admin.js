@@ -462,7 +462,514 @@ downloadNotes.onclick=()=>{
     URL.revokeObjectURL(a.href);
 
 };
+/* ==========================================
+   DAILY LOG MANAGER
+========================================== */
 
+let logs = [];
+let editingLog = null;
+
+
+/* ==========================================
+   Elements
+========================================== */
+
+const logId = document.getElementById("logId");
+const logDate = document.getElementById("logDate");
+const logStatus = document.getElementById("logStatus");
+const logHours = document.getElementById("logHours");
+const logPages = document.getElementById("logPages");
+const logNotes = document.getElementById("logNotes");
+
+const topicInputs = document.getElementById("topicInputs");
+const addTopic = document.getElementById("addTopic");
+
+const saveLog = document.getElementById("saveLog");
+const clearLog = document.getElementById("clearLog");
+
+const logList = document.getElementById("logList");
+const logsPreview = document.getElementById("logsPreview");
+
+const copyLogs = document.getElementById("copyLogs");
+const downloadLogs = document.getElementById("downloadLogs");
+
+
+/* ==========================================
+   Next Log ID
+========================================== */
+
+function nextLogId() {
+
+    if (logs.length === 0) {
+        return 1;
+    }
+
+    return Math.max(
+        ...logs.map(log => Number(log.id) || 0)
+    ) + 1;
+
+}
+
+
+/* ==========================================
+   Add Topic Input
+========================================== */
+
+function addTopicInput(value = "") {
+
+    const input = document.createElement("input");
+
+    input.type = "text";
+
+    input.className = "topic-input";
+
+    input.placeholder = "Topic studied...";
+
+    input.value = value;
+
+    topicInputs.appendChild(input);
+
+}
+
+
+/* ==========================================
+   Reset Topic Inputs
+========================================== */
+
+function resetTopicInputs() {
+
+    topicInputs.innerHTML = "";
+
+    addTopicInput();
+
+}
+
+
+/* ==========================================
+   Get Topics
+========================================== */
+
+function getTopics() {
+
+    return Array.from(
+        topicInputs.querySelectorAll(".topic-input")
+    )
+        .map(input => input.value.trim())
+        .filter(topic => topic !== "");
+
+}
+
+
+/* ==========================================
+   Clear Form
+========================================== */
+
+function clearLogForm() {
+
+    editingLog = null;
+
+    logId.value = nextLogId();
+
+    logDate.value = new Date()
+        .toISOString()
+        .slice(0, 10);
+
+    logStatus.value = "good";
+
+    logHours.value = "";
+
+    logPages.value = "";
+
+    logNotes.value = "";
+
+    resetTopicInputs();
+
+}
+
+
+/* ==========================================
+   Render Logs
+========================================== */
+
+function renderLogs() {
+
+    if (logs.length === 0) {
+
+        logList.innerHTML =
+            "<p>No logs yet.</p>";
+
+        logsPreview.textContent =
+            "[]";
+
+        return;
+
+    }
+
+
+    logList.innerHTML = "";
+
+
+    logs.forEach(log => {
+
+        const card =
+            document.createElement("div");
+
+        card.className = "book-card";
+
+
+        const topics =
+            Array.isArray(log.topics)
+                ? log.topics
+                : [];
+
+
+        card.innerHTML = `
+
+            <div>
+
+                <h4>${log.date}</h4>
+
+                <p>
+                    Status: ${log.status}
+                </p>
+
+                <small>
+                    Hours: ${log.hours}
+                </small>
+
+                <br>
+
+                <small>
+                    Pages: ${log.pages}
+                </small>
+
+                <br>
+
+                <small>
+                    Notes: ${log.notes}
+                </small>
+
+                <br><br>
+
+                <small>
+                    ${topics.join(" • ")}
+                </small>
+
+            </div>
+
+
+            <div class="book-buttons">
+
+                <button
+                    onclick="editLog(${log.id})"
+                >
+                    ✏ Edit
+                </button>
+
+                <button
+                    onclick="deleteLog(${log.id})"
+                >
+                    🗑 Delete
+                </button>
+
+            </div>
+
+        `;
+
+        logList.appendChild(card);
+
+    });
+
+
+    logsPreview.textContent =
+        JSON.stringify(logs, null, 4);
+
+}
+
+
+/* ==========================================
+   Add Topic Button
+========================================== */
+
+addTopic.addEventListener("click", () => {
+
+    addTopicInput();
+
+});
+
+
+/* ==========================================
+   Save Log
+========================================== */
+
+saveLog.addEventListener("click", () => {
+
+    const topics = getTopics();
+
+
+    if (!logDate.value) {
+
+        alert("Please select a date.");
+
+        return;
+
+    }
+
+
+    if (topics.length === 0) {
+
+        alert("Please enter at least one topic.");
+
+        return;
+
+    }
+
+
+    const log = {
+
+        id:
+            editingLog !== null
+                ? editingLog
+                : nextLogId(),
+
+        date:
+            logDate.value,
+
+        status:
+            logStatus.value,
+
+        hours:
+            Number(logHours.value || 0),
+
+        pages:
+            Number(logPages.value || 0),
+
+        topics:
+            topics,
+
+        notes:
+            Number(logNotes.value || 0)
+
+    };
+
+
+    if (editingLog !== null) {
+
+        const index =
+            logs.findIndex(
+                item =>
+                    Number(item.id) ===
+                    Number(editingLog)
+            );
+
+
+        if (index !== -1) {
+
+            logs[index] = log;
+
+        }
+
+    } else {
+
+        logs.push(log);
+
+    }
+
+
+    renderLogs();
+
+    clearLogForm();
+
+});
+
+
+/* ==========================================
+   Edit Log
+========================================== */
+
+function editLog(id) {
+
+    const log =
+        logs.find(
+            item =>
+                Number(item.id) ===
+                Number(id)
+        );
+
+
+    if (!log) {
+        return;
+    }
+
+
+    editingLog = log.id;
+
+
+    logId.value = log.id;
+
+    logDate.value = log.date;
+
+    logStatus.value = log.status;
+
+    logHours.value = log.hours;
+
+    logPages.value = log.pages;
+
+    logNotes.value = log.notes;
+
+
+    topicInputs.innerHTML = "";
+
+
+    if (
+        Array.isArray(log.topics) &&
+        log.topics.length > 0
+    ) {
+
+        log.topics.forEach(topic => {
+
+            addTopicInput(topic);
+
+        });
+
+    } else {
+
+        addTopicInput();
+
+    }
+
+}
+
+
+/* ==========================================
+   Delete Log
+========================================== */
+
+function deleteLog(id) {
+
+    logs =
+        logs.filter(
+            log =>
+                Number(log.id) !==
+                Number(id)
+        );
+
+
+    renderLogs();
+
+    clearLogForm();
+
+}
+
+
+window.editLog = editLog;
+
+window.deleteLog = deleteLog;
+
+
+/* ==========================================
+   Clear Button
+========================================== */
+
+clearLog.addEventListener(
+    "click",
+    clearLogForm
+);
+
+
+/* ==========================================
+   Copy JSON
+========================================== */
+
+copyLogs.addEventListener(
+    "click",
+    async () => {
+
+        try {
+
+            await navigator.clipboard.writeText(
+                JSON.stringify(
+                    logs,
+                    null,
+                    4
+                )
+            );
+
+            alert("logs.json copied!");
+
+        }
+
+        catch (error) {
+
+            console.error(error);
+
+            alert("Could not copy JSON.");
+
+        }
+
+    }
+);
+
+
+/* ==========================================
+   Download JSON
+========================================== */
+
+downloadLogs.addEventListener(
+    "click",
+    () => {
+
+        const json =
+            JSON.stringify(
+                logs,
+                null,
+                4
+            );
+
+
+        const blob =
+            new Blob(
+                [json],
+                {
+                    type:
+                        "application/json"
+                }
+            );
+
+
+        const url =
+            URL.createObjectURL(blob);
+
+
+        const a =
+            document.createElement("a");
+
+
+        a.href = url;
+
+        a.download = "logs.json";
+
+
+        document.body.appendChild(a);
+
+        a.click();
+
+        document.body.removeChild(a);
+
+
+        URL.revokeObjectURL(url);
+
+    }
+);
+
+
+/* ==========================================
+   Initialize
+========================================== */
+
+clearLogForm();
+
+renderLogs();
 // Initialize
 clearBookForm();
 clearNoteForm();
