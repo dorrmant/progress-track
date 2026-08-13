@@ -3,59 +3,118 @@
 
 <head>
 
-<meta charset="UTF-8">
+    <meta charset="UTF-8">
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Note | The Study Ledger</title>
-<link rel="manifest" href="manifest.webmanifest">
+    <title>Note | The Study Ledger</title>
 
-<meta name="theme-color" content="#0b1020">
+    <link rel="manifest" href="manifest.webmanifest">
 
-<meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="theme-color" content="#0b1020">
 
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta
+        name="apple-mobile-web-app-capable"
+        content="yes"
+    >
 
-<meta name="apple-mobile-web-app-title" content="Dorrmant">
+    <meta
+        name="apple-mobile-web-app-status-bar-style"
+        content="black-translucent"
+    >
 
-<link rel="apple-touch-icon" href="icons/icon-512.png">
+    <meta
+        name="apple-mobile-web-app-title"
+        content="Dorrmant"
+    >
+
+    <link
+        rel="apple-touch-icon"
+        href="icons/icon-512.png"
+    >
 
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
+    <!-- Fonts -->
 
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
 
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
 
-<link rel="stylesheet" href="style.css">
-    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-<script src="js/note.js?v=1.0.0"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+
+    <!-- Main stylesheet -->
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+
+    <!-- Markdown renderer -->
+
+    <script
+        src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"
+    ></script>
+
+
+    <!-- Protected note system -->
+
+    <script
+        src="js/note.js?v=1.0.1"
+    ></script>
 
 </head>
 
+
 <body>
 
-<main class="note-page">
 
-    <button class="back-btn" onclick="history.back()">
-        ← Back
-    </button>
+    <main class="note-page">
 
-    <article class="card note-card">
 
-        <h1 id="noteTitle"></h1>
+        <!-- Back -->
 
-        <p id="noteMeta"></p>
+        <button
+            class="back-btn"
+            onclick="history.back()"
+        >
+            ← Back
+        </button>
 
-        <hr>
 
-        <div id="noteContent"></div>
+        <!-- Note -->
 
-    </article>
+        <article class="card note-card">
 
-</main>
 
-<script src="note.js"></script>
+            <h1 id="noteTitle"></h1>
+
+
+            <p id="noteMeta"></p>
+
+
+            <hr>
+
+
+            <div id="noteContent"></div>
+
+
+        </article>
+
+
+    </main>
+
 
 </body>
 
