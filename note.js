@@ -1,6 +1,6 @@
 // ==========================================
-// NOTE.JS
-// The Study Ledger
+// THE STUDY LEDGER
+// PRIVATE NOTE.JS
 // ==========================================
 
 
@@ -8,52 +8,89 @@
 // PASSWORD
 // ==========================================
 
-// CHANGE THIS TO YOUR PASSWORD
-const NOTE_PASSWORD = "0807";
+const NOTE_PASSWORD = "CHANGE_THIS_PASSWORD";
 
 
 // ==========================================
-// PASSWORD GATE
+// START
 // ==========================================
 
-function showPasswordGate() {
+document.addEventListener("DOMContentLoaded", () => {
 
-    document.body.innerHTML = `
+    console.log("NOTE.JS LOADED");
 
-        <div id="passwordGate">
+    checkPassword();
 
-            <div class="password-box">
+});
 
-                <div class="lock-icon">
-                    🔒
-                </div>
 
-                <h1>
-                    Private Notes
-                </h1>
+// ==========================================
+// PASSWORD CHECK
+// ==========================================
 
-                <p>
-                    Enter the password to access this note.
-                </p>
+function checkPassword() {
 
-                <input
-                    type="password"
-                    id="notePassword"
-                    placeholder="Password"
-                    autocomplete="off"
-                >
+    const unlocked =
+        sessionStorage.getItem("notesUnlocked");
 
-                <button id="unlockNotes">
-                    Unlock
-                </button>
+    if (unlocked === "true") {
 
-                <p id="passwordError"></p>
+        loadNote();
 
+        return;
+
+    }
+
+    showPasswordScreen();
+
+}
+
+
+// ==========================================
+// PASSWORD SCREEN
+// ==========================================
+
+function showPasswordScreen() {
+
+    const gate =
+        document.createElement("div");
+
+    gate.id = "passwordGate";
+
+    gate.innerHTML = `
+
+        <div class="password-box">
+
+            <div class="lock-icon">
+                🔒
             </div>
+
+            <h1>
+                Private Notes
+            </h1>
+
+            <p>
+                Enter the password to access this note.
+            </p>
+
+            <input
+                type="password"
+                id="notePassword"
+                placeholder="Password"
+                autocomplete="off"
+            >
+
+            <button id="unlockNotes">
+                Unlock
+            </button>
+
+            <p id="passwordError"></p>
 
         </div>
 
     `;
+
+    document.body.appendChild(gate);
 
 
     const input =
@@ -68,14 +105,19 @@ function showPasswordGate() {
 
     function attemptUnlock() {
 
-        if (input.value === NOTE_PASSWORD) {
+        if (
+            input.value ===
+            NOTE_PASSWORD
+        ) {
 
             sessionStorage.setItem(
                 "notesUnlocked",
                 "true"
             );
 
-            location.reload();
+            gate.remove();
+
+            loadNote();
 
         } else {
 
@@ -99,7 +141,7 @@ function showPasswordGate() {
 
     input.addEventListener(
         "keydown",
-        (event) => {
+        event => {
 
             if (event.key === "Enter") {
 
@@ -110,20 +152,10 @@ function showPasswordGate() {
         }
     );
 
+
+    input.focus();
+
 }
-
-
-// ==========================================
-// NOTE ID
-// ==========================================
-
-const params =
-    new URLSearchParams(
-        window.location.search
-    );
-
-const id =
-    Number(params.get("id"));
 
 
 // ==========================================
@@ -132,16 +164,35 @@ const id =
 
 async function loadNote() {
 
+    const params =
+        new URLSearchParams(
+            window.location.search
+        );
+
+    const id =
+        Number(
+            params.get("id")
+        );
+
+
+    console.log(
+        "Loading note ID:",
+        id
+    );
+
+
     try {
 
         const response =
-            await fetch("data/notes.json");
+            await fetch(
+                "data/notes.json"
+            );
 
 
         if (!response.ok) {
 
             throw new Error(
-                "Failed to load notes."
+                "Could not load notes.json"
             );
 
         }
@@ -153,13 +204,9 @@ async function loadNote() {
 
         const note =
             notes.find(
-                n => n.id === id
+                n => Number(n.id) === id
             );
 
-
-        // ==================================
-        // NOTE NOT FOUND
-        // ==================================
 
         if (!note) {
 
@@ -190,10 +237,6 @@ async function loadNote() {
         }
 
 
-        // ==================================
-        // NOTE DATA
-        // ==================================
-
         document.title =
             note.title;
 
@@ -210,10 +253,6 @@ async function loadNote() {
             `${note.date} • Pages ${note.pages}`;
 
 
-        // ==================================
-        // MARKDOWN
-        // ==================================
-
         const content =
             document.getElementById(
                 "noteContent"
@@ -221,7 +260,8 @@ async function loadNote() {
 
 
         if (
-            typeof marked !== "undefined"
+            typeof marked !==
+            "undefined"
         ) {
 
             content.innerHTML =
@@ -230,9 +270,6 @@ async function loadNote() {
                 );
 
         } else {
-
-            // Fallback if marked.js
-            // is unavailable
 
             content.textContent =
                 note.content;
@@ -244,68 +281,32 @@ async function loadNote() {
 
     catch (error) {
 
-        console.error(error);
+        console.error(
+            "NOTE ERROR:",
+            error
+        );
 
 
-        const title =
-            document.getElementById(
-                "noteTitle"
-            );
-
-        const meta =
-            document.getElementById(
-                "noteMeta"
-            );
-
-        const content =
-            document.getElementById(
-                "noteContent"
-            );
+        document.getElementById(
+            "noteTitle"
+        ).textContent =
+            "Error";
 
 
-        if (title) {
-
-            title.textContent =
-                "Error";
-
-        }
+        document.getElementById(
+            "noteMeta"
+        ).textContent =
+            "";
 
 
-        if (meta) {
-
-            meta.textContent =
-                "";
-
-        }
-
-
-        if (content) {
-
-            content.innerHTML =
-                "<p>Unable to load note.</p>";
-
-        }
+        document.getElementById(
+            "noteContent"
+        ).innerHTML =
+            `<p>
+                Unable to load note.
+            </p>`;
 
     }
-
-}
-
-
-// ==========================================
-// ACCESS CHECK
-// ==========================================
-
-if (
-    sessionStorage.getItem(
-        "notesUnlocked"
-    ) === "true"
-) {
-
-    loadNote();
-
-} else {
-
-    showPasswordGate();
 
 }
 
@@ -319,7 +320,6 @@ const menuToggle =
         "menuToggle"
     );
 
-
 const sidebar =
     document.querySelector(
         ".sidebar"
@@ -330,7 +330,6 @@ if (
     menuToggle &&
     sidebar
 ) {
-
 
     menuToggle.addEventListener(
         "click",
@@ -346,18 +345,18 @@ if (
 
     document.addEventListener(
         "click",
-        (e) => {
+        event => {
 
             if (
 
                 window.innerWidth <= 900 &&
 
                 !sidebar.contains(
-                    e.target
+                    event.target
                 ) &&
 
                 !menuToggle.contains(
-                    e.target
+                    event.target
                 )
 
             ) {
