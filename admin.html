@@ -2,54 +2,111 @@
 <html lang="en">
 
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
     <title>The Study Ledger CMS</title>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
-        rel="stylesheet">
+    <!-- Fonts -->
 
-    <link rel="stylesheet" href="admin.css">
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+
+    <!-- CSS -->
+
+    <link
+        rel="stylesheet"
+        href="admin.css"
+    >
+
 </head>
+
 
 <body>
 
+
 <div class="container">
 
-    <!-- Sidebar -->
+
+    <!-- ==========================================
+         SIDEBAR
+    ========================================== -->
 
     <aside class="sidebar">
 
         <h2>The Study Ledger</h2>
-        <p>Content Manager</p>
+
+        <p>
+            Content Manager
+        </p>
+
 
         <nav>
 
-            <button class="nav-btn active" data-panel="dashboard">
+            <button
+                class="nav-btn active"
+                data-panel="dashboard"
+            >
                 🏠 Dashboard
             </button>
 
-            <button class="nav-btn" data-panel="books">
+
+            <button
+                class="nav-btn"
+                data-panel="books"
+            >
                 📚 Books
             </button>
 
-            <button class="nav-btn" data-panel="notes">
+
+            <button
+                class="nav-btn"
+                data-panel="notes"
+            >
                 📝 Notes
             </button>
 
-            <button class="nav-btn" data-panel="logs">
+
+            <button
+                class="nav-btn"
+                data-panel="logs"
+            >
                 📅 Daily Log
             </button>
 
-            <button class="nav-btn" data-panel="profile">
+
+            <button
+                class="nav-btn"
+                data-panel="profile"
+            >
                 👤 Profile
             </button>
 
-            <button class="nav-btn" data-panel="export">
+
+            <button
+                class="nav-btn"
+                data-panel="export"
+            >
                 ⚙ Export
             </button>
 
@@ -58,9 +115,15 @@
     </aside>
 
 
-    <!-- Main -->
+
+    <!-- ==========================================
+         MAIN
+    ========================================== -->
 
     <main class="main">
+
+
+        <!-- Header -->
 
         <header>
 
@@ -75,289 +138,680 @@
         </header>
 
 
-        <!-- Dashboard -->
 
-        <section id="dashboard" class="panel active">
+        <!-- ==========================================
+             DASHBOARD
+        ========================================== -->
+
+        <section
+            id="dashboard"
+            class="panel active"
+        >
 
             <div class="cards">
 
-                <div class="card" data-open="books">
-                    <h3>📚 Books</h3>
-                    <p>Add or edit books.</p>
+
+                <div
+                    class="card"
+                    data-open="books"
+                >
+
+                    <h3>
+                        📚 Books
+                    </h3>
+
+                    <p>
+                        Add or edit books.
+                    </p>
+
                 </div>
 
-                <div class="card" data-open="notes">
-                    <h3>📝 Notes</h3>
-                    <p>Create reading notes.</p>
+
+
+                <div
+                    class="card"
+                    data-open="notes"
+                >
+
+                    <h3>
+                        📝 Notes
+                    </h3>
+
+                    <p>
+                        Create reading notes.
+                    </p>
+
                 </div>
 
-                <div class="card" data-open="logs">
-                    <h3>📅 Daily Log</h3>
-                    <p>Track your study sessions.</p>
+
+
+                <div
+                    class="card"
+                    data-open="logs"
+                >
+
+                    <h3>
+                        📅 Daily Log
+                    </h3>
+
+                    <p>
+                        Track your study sessions.
+                    </p>
+
                 </div>
 
-                <div class="card" data-open="profile">
-                    <h3>👤 Profile</h3>
-                    <p>Edit profile information.</p>
+
+
+                <div
+                    class="card"
+                    data-open="profile"
+                >
+
+                    <h3>
+                        👤 Profile
+                    </h3>
+
+                    <p>
+                        Edit profile information.
+                    </p>
+
                 </div>
+
 
             </div>
 
         </section>
 
 
-       
-<!-- Books -->
 
-<section id="books" class="panel">
+        <!-- ==========================================
+             BOOKS
+        ========================================== -->
 
-    <h2>📚 Books Manager</h2>
+        <section
+            id="books"
+            class="panel"
+        >
 
-    <div class="book-layout">
+            <h2>
+                📚 Books Manager
+            </h2>
 
-        <!-- Left -->
 
-        <div class="editor-card">
+            <div class="book-layout">
 
-            <h3>Add / Edit Book</h3>
 
-            <label>ID</label>
-            <input
-                type="number"
-                id="bookId"
-                placeholder="Auto-generated"
-                readonly
-            >
+                <!-- LEFT -->
 
-            <label>Title</label>
-            <input
-                type="text"
-                id="bookTitle"
-                placeholder="Ibn Taymiyyah against the Greek Logicians"
-            >
+                <div class="editor-card">
 
-            <label>Author</label>
-            <input
-                type="text"
-                id="bookAuthor"
-                placeholder="Wael b. Hallaq"
-            >
+                    <h3>
+                        Add / Edit Book
+                    </h3>
 
-            <label>Total Pages</label>
-            <input
-                type="number"
-                id="bookPages"
-                placeholder="203"
-            >
 
-            <label>Current Page</label>
-            <input
-                type="number"
-                id="bookCurrentPage"
-                placeholder="61"
-            >
+                    <label>
+                        ID
+                    </label>
 
-            <label>Started</label>
-            <input
-                type="date"
-                id="bookStarted"
-            >
+                    <input
+                        type="number"
+                        id="bookId"
+                        placeholder="Auto-generated"
+                        readonly
+                    >
 
-            <label>Status</label>
 
-            <select id="bookStatus">
-                <option value="reading">📖 Reading</option>
-                <option value="completed">✓ Completed</option>
-                <option value="planned">📚 Planned</option>
-            </select>
+                    <label>
+                        Title
+                    </label>
 
-            <button id="saveBook">
-                💾 Save Book
-            </button>
+                    <input
+                        type="text"
+                        id="bookTitle"
+                        placeholder="Ibn Taymiyyah against the Greek Logicians"
+                    >
 
-            <button
-                id="clearBook"
-                class="secondary-btn"
-            >
-                Clear Form
-            </button>
 
-        </div>
+                    <label>
+                        Author
+                    </label>
 
-        <!-- Right -->
+                    <input
+                        type="text"
+                        id="bookAuthor"
+                        placeholder="Wael b. Hallaq"
+                    >
 
-        <div class="editor-card">
 
-           <h3>Current Books</h3>
+                    <label>
+                        Total Pages
+                    </label>
 
-<div id="bookList">
-    <p>No books yet.</p>
-</div>
+                    <input
+                        type="number"
+                        id="bookPages"
+                        placeholder="203"
+                    >
 
-<hr style="margin:25px 0; opacity:.2;">
 
-<h3>books.json</h3>
+                    <label>
+                        Current Page
+                    </label>
 
-<pre id="booksPreview">[]</pre>
+                    <input
+                        type="number"
+                        id="bookCurrentPage"
+                        placeholder="61"
+                    >
 
-<div class="btn-row">
 
-    <button id="copyBooks">
-        📋 Copy JSON
-    </button>
+                    <label>
+                        Started
+                    </label>
 
-    <button id="downloadBooks">
-        ⬇ Download JSON
-    </button>
+                    <input
+                        type="date"
+                        id="bookStarted"
+                    >
 
-</div>
 
-        </div>
+                    <label>
+                        Status
+                    </label>
 
-    </div>
+                    <select id="bookStatus">
 
-</section>
+                        <option value="reading">
+                            📖 Reading
+                        </option>
 
-    
+                        <option value="completed">
+                            ✓ Completed
+                        </option>
 
-    
-<!-- Notes -->
+                        <option value="planned">
+                            📚 Planned
+                        </option>
 
-<section id="notes" class="panel">
+                    </select>
 
-    <h2>📝 Notes Manager</h2>
 
-    <div class="book-layout">
+                    <button id="saveBook">
+                        💾 Save Book
+                    </button>
 
-        <!-- Left -->
 
-        <div class="editor-card">
+                    <button
+                        id="clearBook"
+                        class="secondary-btn"
+                    >
+                        Clear Form
+                    </button>
 
-            <h3>Add / Edit Note</h3>
+                </div>
 
-            <label>ID</label>
-            <input
-                type="number"
-                id="noteId"
-                placeholder="Auto-generated"
-                readonly
-            >
 
-           <label>Book ID</label>
 
-<input
-    type="number"
-    id="noteBook"
-    placeholder="1"
->
+                <!-- RIGHT -->
 
-            <label>Title</label>
-            <input
-                type="text"
-                id="noteTitle"
-                placeholder="God Spatially Above and Spatially Extended"
-            >
+                <div class="editor-card">
 
-            <label>Date</label>
-            <input
-                type="date"
-                id="noteDate"
-            >
+                    <h3>
+                        Current Books
+                    </h3>
 
-            <label>Pages</label>
-            <input
-                type="text"
-                id="notePages"
-                placeholder="1–49"
-            >
 
-            <label>Content</label>
+                    <div id="bookList">
 
-            <textarea
-                id="noteContent"
-                rows="16"
-                placeholder="Write your research notes here..."
-            ></textarea>
+                        <p>
+                            No books yet.
+                        </p>
 
-            <button id="saveNote">
-                💾 Save Note
-            </button>
+                    </div>
 
-            <button
-                id="clearNote"
-                class="secondary-btn"
-            >
-                Clear Form
-            </button>
 
-        </div>
+                    <hr
+                        style="margin:25px 0; opacity:.2;"
+                    >
 
-        <!-- Right -->
 
-        <div class="editor-card">
+                    <h3>
+                        books.json
+                    </h3>
 
-            <h3>Current Notes</h3>
 
-            <div id="noteList">
+                    <pre id="booksPreview">[]</pre>
 
-                <p>No notes yet.</p>
+
+                    <div class="btn-row">
+
+                        <button id="copyBooks">
+                            📋 Copy JSON
+                        </button>
+
+
+                        <button id="downloadBooks">
+                            ⬇ Download JSON
+                        </button>
+
+                    </div>
+
+                </div>
+
 
             </div>
-
-            <hr style="margin:25px 0; opacity:.2;">
-
-            <h3>notes.json</h3>
-
-            <pre id="notesPreview">[]</pre>
-
-            <div class="btn-row">
-
-                <button id="copyNotes">
-                    📋 Copy JSON
-                </button>
-
-                <button id="downloadNotes">
-                    ⬇ Download JSON
-                </button>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-        <!-- Daily Log -->
-
-        <section id="logs" class="panel">
-
-            <h2>Daily Log</h2>
-
-            <p>This section will generate and update <strong>logs.json</strong>.</p>
 
         </section>
 
 
-        <!-- Profile -->
 
-        <section id="profile" class="panel">
+        <!-- ==========================================
+             NOTES
+        ========================================== -->
 
-            <h2>Profile</h2>
+        <section
+            id="notes"
+            class="panel"
+        >
 
-            <p>This section will edit <strong>profile.json</strong>.</p>
+            <h2>
+                📝 Notes Manager
+            </h2>
+
+
+            <div class="book-layout">
+
+
+                <!-- LEFT -->
+
+                <div class="editor-card">
+
+                    <h3>
+                        Add / Edit Note
+                    </h3>
+
+
+                    <label>
+                        ID
+                    </label>
+
+                    <input
+                        type="number"
+                        id="noteId"
+                        placeholder="Auto-generated"
+                        readonly
+                    >
+
+
+                    <label>
+                        Book ID
+                    </label>
+
+                    <input
+                        type="number"
+                        id="noteBook"
+                        placeholder="1"
+                    >
+
+
+                    <label>
+                        Title
+                    </label>
+
+                    <input
+                        type="text"
+                        id="noteTitle"
+                        placeholder="God Spatially Above and Spatially Extended"
+                    >
+
+
+                    <label>
+                        Date
+                    </label>
+
+                    <input
+                        type="date"
+                        id="noteDate"
+                    >
+
+
+                    <label>
+                        Pages
+                    </label>
+
+                    <input
+                        type="text"
+                        id="notePages"
+                        placeholder="1–49"
+                    >
+
+
+                    <label>
+                        Content
+                    </label>
+
+                    <textarea
+                        id="noteContent"
+                        rows="16"
+                        placeholder="Write your research notes here..."
+                    ></textarea>
+
+
+                    <button id="saveNote">
+                        💾 Save Note
+                    </button>
+
+
+                    <button
+                        id="clearNote"
+                        class="secondary-btn"
+                    >
+                        Clear Form
+                    </button>
+
+                </div>
+
+
+
+                <!-- RIGHT -->
+
+                <div class="editor-card">
+
+                    <h3>
+                        Current Notes
+                    </h3>
+
+
+                    <div id="noteList">
+
+                        <p>
+                            No notes yet.
+                        </p>
+
+                    </div>
+
+
+                    <hr
+                        style="margin:25px 0; opacity:.2;"
+                    >
+
+
+                    <h3>
+                        notes.json
+                    </h3>
+
+
+                    <pre id="notesPreview">[]</pre>
+
+
+                    <div class="btn-row">
+
+                        <button id="copyNotes">
+                            📋 Copy JSON
+                        </button>
+
+
+                        <button id="downloadNotes">
+                            ⬇ Download JSON
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+            </div>
 
         </section>
 
 
-        <!-- Export -->
 
-        <section id="export" class="panel">
+        <!-- ==========================================
+             DAILY LOG
+        ========================================== -->
 
-            <h2>Export</h2>
+        <section
+            id="logs"
+            class="panel"
+        >
 
-            <p>Download all updated JSON files from here.</p>
+            <h2>
+                📅 Daily Log Manager
+            </h2>
+
+
+            <div class="book-layout">
+
+
+                <!-- ==================================
+                     LOG EDITOR
+                ================================== -->
+
+                <div class="editor-card">
+
+                    <h3>
+                        Add / Edit Daily Log
+                    </h3>
+
+
+                    <label>
+                        ID
+                    </label>
+
+                    <input
+                        type="number"
+                        id="logId"
+                        placeholder="Auto-generated"
+                        readonly
+                    >
+
+
+                    <label>
+                        Date
+                    </label>
+
+                    <input
+                        type="date"
+                        id="logDate"
+                    >
+
+
+                    <label>
+                        Status
+                    </label>
+
+                    <select id="logStatus">
+
+                        <option value="excellent">
+                            ⭐ Excellent
+                        </option>
+
+                        <option value="good">
+                            👍 Good
+                        </option>
+
+                        <option value="average">
+                            🙂 Average
+                        </option>
+
+                        <option value="poor">
+                            😐 Poor
+                        </option>
+
+                    </select>
+
+
+                    <label>
+                        Study Hours
+                    </label>
+
+                    <input
+                        type="number"
+                        id="logHours"
+                        placeholder="3"
+                        min="0"
+                        step="0.5"
+                    >
+
+
+                    <label>
+                        Pages Read
+                    </label>
+
+                    <input
+                        type="number"
+                        id="logPages"
+                        placeholder="34"
+                        min="0"
+                    >
+
+
+                    <label>
+                        Topics
+                    </label>
+
+
+                    <div id="topicInputs">
+
+                        <input
+                            type="text"
+                            class="topic-input"
+                            placeholder="Topic studied..."
+                        >
+
+                    </div>
+
+
+                    <button
+                        type="button"
+                        id="addTopic"
+                    >
+                        + Add Topic
+                    </button>
+
+
+                    <label>
+                        Notes
+                    </label>
+
+                    <input
+                        type="number"
+                        id="logNotes"
+                        placeholder="1"
+                        min="0"
+                    >
+
+
+                    <button id="saveLog">
+                        💾 Save Log
+                    </button>
+
+
+                    <button
+                        id="clearLog"
+                        class="secondary-btn"
+                    >
+                        Clear Form
+                    </button>
+
+                </div>
+
+
+
+                <!-- ==================================
+                     LOG LIST + JSON
+                ================================== -->
+
+                <div class="editor-card">
+
+                    <h3>
+                        Current Logs
+                    </h3>
+
+
+                    <div id="logList">
+
+                        <p>
+                            No logs yet.
+                        </p>
+
+                    </div>
+
+
+                    <hr
+                        style="margin:25px 0; opacity:.2;"
+                    >
+
+
+                    <h3>
+                        logs.json
+                    </h3>
+
+
+                    <pre id="logsPreview">[]</pre>
+
+
+                    <div class="btn-row">
+
+                        <button id="copyLogs">
+                            📋 Copy JSON
+                        </button>
+
+
+                        <button id="downloadLogs">
+                            ⬇ Download JSON
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ==========================================
+             PROFILE
+        ========================================== -->
+
+        <section
+            id="profile"
+            class="panel"
+        >
+
+            <h2>
+                Profile
+            </h2>
+
+            <p>
+                This section will edit
+                <strong>profile.json</strong>.
+            </p>
+
+        </section>
+
+
+
+        <!-- ==========================================
+             EXPORT
+        ========================================== -->
+
+        <section
+            id="export"
+            class="panel"
+        >
+
+            <h2>
+                Export
+            </h2>
+
+            <p>
+                Download all updated JSON files from here.
+            </p>
 
         </section>
 
@@ -366,7 +820,14 @@
 
 </div>
 
+
+<!-- ==========================================
+     ADMIN JAVASCRIPT
+========================================== -->
+
 <script src="admin.js"></script>
 
+
 </body>
+
 </html>
