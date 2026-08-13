@@ -90,5 +90,16 @@
             "Functions and Its Operations"
         ],
         "notes": 0
+    },
+    {
+        "id": 1,
+        "date": "2026-08-06",
+        "status": "average",
+        "hours": 1,
+        "pages": 0,
+        "topics": [
+            "Penetration Test"
+        ],
+        "notes": 0
     }
 ]
