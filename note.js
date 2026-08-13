@@ -8,7 +8,7 @@
 // PASSWORD
 // ==========================================
 
-const NOTE_PASSWORD = "CHANGE_THIS_PASSWORD";
+const NOTE_PASSWORD = "0807";
 
 
 // ==========================================
