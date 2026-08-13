@@ -27,7 +27,8 @@
     "started": "2023-05-20",
     "finished": "2023-06-12",
     "status": "completed"
-  }, {
+  },
+  {
     "id": 5,
     "title": "Ibn Taymiyya’s Criticism of the Syllogism",
     "author": "Sobhi Rayan",
@@ -39,7 +40,7 @@
   },
   {
     "id": 6,
-    "title": "Defining without Essences: Ibn Taymiyya’sCritique of Aristotelian Logic",
+    "title": "Defining without Essences: Ibn Taymiyya’s Critique of Aristotelian Logic",
     "author": "Sherif Salem",
     "pages": 24,
     "currentPage": 24,
@@ -47,24 +48,74 @@
     "finished": "2026-01-02",
     "status": "completed"
   },
-  {   "id": 7,
-    "title": "Ibn Taymiyyah & Wittgenstein on language",
+  {
+    "id": 7,
+    "title": "Ibn Taymiyyah & Wittgenstein on Language",
     "author": "Mustafa AR",
     "pages": 41,
     "currentPage": 41,
     "started": "2026-01-02",
     "finished": "2026-01-02",
     "status": "completed"
-  }, 
-    {
-        "id": 8,
-        "title": "Introduction to Propositional Logic & Discrete Mathematics",
-        "author": "Hasnain Ahmed",
-        "pages": 735,
-        "currentPage": 735,
-        "started": "",
-        "status": "completed"
-    }
+  },
+  {
+    "id": 8,
+    "title": "Introduction to Propositional Logic & Discrete Mathematics",
+    "author": "Hasnain Ahmed",
+    "pages": 735,
+    "currentPage": 735,
+    "started": "",
+    "finished": "",
+    "status": "completed"
+  },
+  {
+    "id": 9,
+    "title": "A Lecture on Ethics",
+    "author": "Ludwig Wittgenstein",
+    "pages": 20,
+    "currentPage": 20,
+    "started": "",
+    "finished": "",
+    "status": "completed"
+  },
+  {
+    "id": 10,
+    "title": "Lecture on Religious Belief",
+    "author": "Ludwig Wittgenstein",
+    "pages": 30,
+    "currentPage": 30,
+    "started": "",
+    "finished": "",
+    "status": "completed"
+  },
+  {
+    "id": 11,
+    "title": "An Answer to the Question: What Is Enlightenment?",
+    "author": "Immanuel Kant",
+    "pages": 12,
+    "currentPage": 12,
+    "started": "",
+    "finished": "",
+    "status": "completed"
+  },
+  {
+    "id": 12,
+    "title": "What Does It Mean to Orient Oneself in Thinking?",
+    "author": "Immanuel Kant",
+    "pages": 25,
+    "currentPage": 25,
+    "started": "",
+    "finished": "",
+    "status": "completed"
+  },
+  {
+    "id": 13,
+    "title": "Religion Within the Boundaries of Mere Reason",
+    "author": "Immanuel Kant",
+    "pages": 200,
+    "currentPage": 200,
+    "started": "",
+    "finished": "",
+    "status": "completed"
+  }
 ]
-
-
