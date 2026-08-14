@@ -101,5 +101,16 @@
             "Penetration Test"
         ],
         "notes": 0
+    },
+    {
+        "id": 2,
+        "date": "2026-08-14",
+        "status": "good",
+        "hours": 3,
+        "pages": 0,
+        "topics": [
+            "Problems of Inclination and Declination"
+        ],
+        "notes": 0
     }
 ]
