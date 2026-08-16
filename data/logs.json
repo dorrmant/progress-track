@@ -112,5 +112,16 @@
             "Problems of Inclination and Declination"
         ],
         "notes": 0
+    },
+    {
+        "id": 3,
+        "date": "2026-08-15",
+        "status": "good",
+        "hours": 2,
+        "pages": 0,
+        "topics": [
+            "Conservative Force and Work Energy"
+        ],
+        "notes": 0
     }
 ]
