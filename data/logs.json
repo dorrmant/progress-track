@@ -134,5 +134,38 @@
             "10 Categories"
         ],
         "notes": 0
+    },
+    {
+        "id": 5,
+        "date": "2026-08-20",
+        "status": "good",
+        "hours": 0,
+        "pages": 0,
+        "topics": [
+            "Python: Conditional statements"
+        ],
+        "notes": 0
+    },
+    {
+        "id": 6,
+        "date": "2026-08-21",
+        "status": "excellent",
+        "hours": 4,
+        "pages": 0,
+        "topics": [
+            "Python: Loop & Arrays"
+        ],
+        "notes": 0
+    },
+    {
+        "id": 7,
+        "date": "2026-08-22",
+        "status": "good",
+        "hours": 1.6,
+        "pages": 0,
+        "topics": [
+            "Python: String and String Manipulations"
+        ],
+        "notes": 0
     }
 ]
