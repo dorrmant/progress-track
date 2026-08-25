@@ -167,5 +167,16 @@
             "Python: String and String Manipulations"
         ],
         "notes": 0
+    },
+    {
+        "id": 8,
+        "date": "2026-08-24",
+        "status": "excellent",
+        "hours": 4,
+        "pages": 0,
+        "topics": [
+            "Categories J.L Ackrill"
+        ],
+        "notes": 0
     }
 ]
