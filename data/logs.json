@@ -183,7 +183,7 @@
         "id": 9,
         "date": "2026-08-25",
         "status": "good",
-        "hours": 0,
+        "hours": 1,
         "pages": 0,
         "topics": [
             "Categories J.L Ackrill"
@@ -194,7 +194,7 @@
         "id": 10,
         "date": "2026-08-26",
         "status": "good",
-        "hours": 0,
+        "hours": 1,
         "pages": 0,
         "topics": [
             "Interpretation J.L Ackrill"
@@ -204,8 +204,8 @@
     {
         "id": 11,
         "date": "2026-08-27",
-        "status": "good",
-        "hours": 0,
+        "status": "excellent",
+        "hours": 4,
         "pages": 0,
         "topics": [
             "Interpretation J.L Ackrill"
@@ -216,7 +216,7 @@
         "id": 12,
         "date": "2026-08-28",
         "status": "good",
-        "hours": 0,
+        "hours": 1.5,
         "pages": 0,
         "topics": [
             "Interpretation J.L Ackrill"
