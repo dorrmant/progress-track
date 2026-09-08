@@ -222,5 +222,27 @@
             "Interpretation J.L Ackrill"
         ],
         "notes": 0
+    },
+    {
+        "id": 13,
+        "date": "2026-09-07",
+        "status": "good",
+        "hours": 0,
+        "pages": 0,
+        "topics": [
+            "Cipher Text to Plain Text"
+        ],
+        "notes": 0
+    },
+    {
+        "id": 14,
+        "date": "2026-09-06",
+        "status": "good",
+        "hours": 0,
+        "pages": 0,
+        "topics": [
+            "Damping and Frequency"
+        ],
+        "notes": 0
     }
 ]
