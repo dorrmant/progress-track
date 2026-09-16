@@ -244,5 +244,27 @@
             "Damping and Frequency"
         ],
         "notes": 0
+    },
+    {
+        "id": 15,
+        "date": "162026-09-12",
+        "status": "excellent",
+        "hours": 0,
+        "pages": 0,
+        "topics": [
+            "Optics & Nuclear Physics"
+        ],
+        "notes": 0
+    },
+    {
+        "id": 16,
+        "date": "2026-09-13",
+        "status": "good",
+        "hours": 0,
+        "pages": 0,
+        "topics": [
+            "Optics & Nuclear Physics"
+        ],
+        "notes": 0
     }
 ]
