@@ -266,5 +266,49 @@
             "Optics & Nuclear Physics"
         ],
         "notes": 0
+    },
+    {
+        "id": 17,
+        "date": "2026-09-16",
+        "status": "good",
+        "hours": 0,
+        "pages": 0,
+        "topics": [
+            "Ceaser Cipher"
+        ],
+        "notes": 0
+    },
+    {
+        "id": 18,
+        "date": "2026-09-18",
+        "status": "excellent",
+        "hours": 4,
+        "pages": 0,
+        "topics": [
+            "Ceaser Cipher"
+        ],
+        "notes": 0
+    },
+    {
+        "id": 19,
+        "date": "2026-09-22",
+        "status": "good",
+        "hours": 0,
+        "pages": 0,
+        "topics": [
+            "Hill Cipher"
+        ],
+        "notes": 0
+    },
+    {
+        "id": 20,
+        "date": "2026-09-23",
+        "status": "excellent",
+        "hours": 0,
+        "pages": 0,
+        "topics": [
+            "Hill Cipher & enc/dyc"
+        ],
+        "notes": 0
     }
 ]
