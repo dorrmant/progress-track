@@ -313,7 +313,7 @@
     },
     {
         "id": 21,
-        "date": "2026-02-09",
+        "date": "2026-09-29",
         "status": "good",
         "hours": 2,
         "pages": 0,
@@ -336,7 +336,7 @@
     },
     {
         "id": 23,
-        "date": "2026-01-10",
+        "date": "2026-10-01",
         "status": "good",
         "hours": 0,
         "pages": 0,
@@ -347,9 +347,9 @@
     },
     {
         "id": 24,
-        "date": "2026-03-10",
+        "date": "2026-10-03",
         "status": "excellent",
-        "hours": 0,
+        "hours": 4,
         "pages": 0,
         "topics": [
             "Quantum Theory"
