@@ -310,5 +310,50 @@
             "Hill Cipher & enc/dyc"
         ],
         "notes": 0
+    },
+    {
+        "id": 21,
+        "date": "2026-02-09",
+        "status": "good",
+        "hours": 2,
+        "pages": 0,
+        "topics": [
+            "Physical Optics"
+        ],
+        "notes": 0
+    },
+    {
+        "id": 22,
+        "date": "2026-09-30",
+        "status": "excellent",
+        "hours": 4,
+        "pages": 0,
+        "topics": [
+            "Physical Optics",
+            "Geometrical Optics"
+        ],
+        "notes": 0
+    },
+    {
+        "id": 23,
+        "date": "2026-01-10",
+        "status": "good",
+        "hours": 0,
+        "pages": 0,
+        "topics": [
+            "Quantum Theory"
+        ],
+        "notes": 0
+    },
+    {
+        "id": 24,
+        "date": "2026-03-10",
+        "status": "excellent",
+        "hours": 0,
+        "pages": 0,
+        "topics": [
+            "Quantum Theory"
+        ],
+        "notes": 0
     }
 ]
